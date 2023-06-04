@@ -7,11 +7,12 @@ export class AppService {
   }
 
 
+
   async getCalc1(){
 
     var sub;
 
-    fetch('./categorias.json')
+    fetch('./categories.json')
     .then((response) => response.json())
     .then((json) => console.log(json));
 
