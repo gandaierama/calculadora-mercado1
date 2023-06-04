@@ -13,12 +13,14 @@ export class AppService {
     var sub;
 
     fetch('./categories.json')
-    .then((response) => response.json())
-    .then((json) => console.log(json));
+    .then((response) => {
+      sub = response.json();
+    });
 
 
 
-    return 'Hello World!';
+
+    return sub;
   }
 
   async getCalc2(){
