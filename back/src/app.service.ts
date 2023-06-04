@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-
+import axios from 'axios';
 @Injectable()
 export class AppService {
   getHello(): string {
@@ -12,9 +12,9 @@ export class AppService {
 
     var sub;
 
-    fetch('./categories.json')
+    axios('./categories.json')
     .then((response) => {
-      sub = response.json();
+      sub = response;
     });
 
 
