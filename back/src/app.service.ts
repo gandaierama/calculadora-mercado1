@@ -1,5 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import axios from 'axios';
+
+import categories from '../categories.json';
 @Injectable()
 export class AppService {
   getHello(): string {
@@ -12,15 +14,12 @@ export class AppService {
 
     var sub;
 
-    axios('./categories.json')
-    .then((response) => {
-      sub = response;
-    });
+    
 
 
 
 
-    return sub;
+    return categories;
   }
 
   async getCalc2(){
