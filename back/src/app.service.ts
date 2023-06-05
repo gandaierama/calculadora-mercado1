@@ -25,8 +25,8 @@ export class AppService {
     }
     console.log(sub);
 
-    sub= JSON.stringify(sub);
-    return sub;
+    sub1= JSON.stringify(sub);
+    return sub1;
   }
 
   async getCalc2(){
