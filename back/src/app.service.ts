@@ -18,7 +18,7 @@ export class AppService {
     let json2= JSON.parse(json1);
 
     let sizeJson = json2.length;
-
+    console.log("oi");
     for(let i =0; i < sizeJson; i++ ){
          
             sub.push({name: json2[i].name, id: json2[i].id});
