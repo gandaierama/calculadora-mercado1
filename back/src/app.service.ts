@@ -14,6 +14,7 @@ export class AppService {
   async getCalc1(){
 
     var sub=[];
+    var sub1;
     let json1= JSON.stringify(categories);
     let json2= JSON.parse(json1);
 
