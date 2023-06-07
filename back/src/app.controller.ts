@@ -1,4 +1,5 @@
-import { Controller, Get } from '@nestjs/common';
+
+  import { Controller, Get, Param } from '@nestjs/common';
 import { AppService } from './app.service';
 
 @Controller()
@@ -17,14 +18,15 @@ export class AppController {
   }
 
   @Get("/calc2")
-  getCalc2() {
-    return this.appService.getCalc2();
+  getCalc2(@Param() params: any) {
+    return this.appService.getCalc2(params);
   }
-
   @Get("/calc3")
-  getCalc3() {
-    return this.appService.getCalc3();
+  getCalc3(@Param() params: any) {
+    return this.appService.getCalc3(params);
   }
 
 
 }
+
+
