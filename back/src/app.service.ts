@@ -26,11 +26,11 @@ export class AppService {
     }
     console.log(sub);
 
-    sub1= await JSON.stringify(sub);
+    sub1= await JSON.stringify({data:sub});
     console.log(sub1);
-    const res={data:sub1};
 
-    return res;
+
+    return sub1;
   }
 
   async getCalc2(params){
@@ -58,24 +58,41 @@ export class AppService {
 
   async getCalc3(params){
     console.log(params);
-    var sub=[];
-    var sub1;
-    let json1= JSON.stringify(categories);
-    let json2= JSON.parse(json1);
-    var id=params;
-    let sizeJson = json2.length;
 
-    for(let i =0; i < sizeJson; i++ ){
-            if(json2[i].id==id){
+    const anuncio=Number(params.anuncio);
+    const imposto=Number(params.imposto);
+    const custo=Number(params.custo);
+    const frete=Number(params.frete);
+    const taxa=Number(params.taxa);
+    const formato=Number(params.formato);
+    const lucro=Number(params.lucro);
 
-              sub.push(json2[i].children);
-            }
-            
+
+    let valor1=anuncio+ imposto;
+    let valor2=custo + lucro + taxa;
+    let valor3=custo + lucro + frete;
+    let valor4=(lucro / custo) * 100;
+    let valor5= valor2 / ((1 - valor1)/100);
+    let valor6=valor3 / ((1 - valor1)/100);
+    let valor7=(custo + (custo * (lucro/100)) ) -custo;
+
+
+    let obj;
+
+
+    obj={
+      val1: valor1,
+      val2: valor2,
+      val3: valor3,
+      val4: valor4,
+      val5: valor5,
+      val6: valor6,
+      val7: valor7
     }
-    console.log(sub);
 
-    sub1= JSON.stringify(sub);
-    return sub1;
+
+    const res= JSON.stringify(obj);
+    return res;
   }
 
   
