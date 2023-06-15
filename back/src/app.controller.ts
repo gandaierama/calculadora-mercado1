@@ -1,7 +1,8 @@
 
-  import { Controller, Get, Param, Query } from '@nestjs/common';
+  import { Controller, Get, Param, Query , StreamableFile} from '@nestjs/common';
 import { AppService } from './app.service';
-
+import { createReadStream } from 'fs';
+import { join } from 'path';
 @Controller()
 export class AppController {
   constructor(private readonly appService: AppService) {}
@@ -11,7 +12,11 @@ export class AppController {
     return this.appService.getHello();
   }
 
-
+  @Get("script")
+  getFile(): StreamableFile {
+    const file = createReadStream(join(process.cwd(), 'package.json'));
+    return new StreamableFile(file);
+  }
   @Get("/calc")
   getCalc1(){
     return this.appService.getCalc1();
