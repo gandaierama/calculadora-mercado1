@@ -22,9 +22,9 @@ export class AppService {
 
     for(let i =0; i < sizeJson; i++ ){
          
-            sub.push({name: json2[i].name, id: json2[i].id, children: json2[i].children});
+            sub.push({name: json2[i].name, id: json2[i].id});
     }
-    console.log(sub);
+
 
     sub1= await JSON.stringify({data:sub});
     console.log(sub1);
