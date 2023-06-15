@@ -1,22 +1,10 @@
-import { Injectable, Logger} from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import axios from 'axios';
 import { Produto } from './produtos/entities/produto.entity';
 import categories from '../categories.json';
-import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
+
 @Injectable()
 export class AppService {
-
-
-  constructor(
-    @InjectRepository(Produto)
-    private produtoRepository: Repository<Produto>
-  ) {}
-
-  private readonly logger = new Logger(AppService.name);
-  private readonly loggerC = new Logger('CRON');
-
-
   getHello(): string {
     return 'Hello World!';
   }
