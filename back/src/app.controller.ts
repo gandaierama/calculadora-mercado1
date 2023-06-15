@@ -25,6 +25,7 @@ export class AppController {
 
   @Get("/calc3")
   getCalc3(@Param() params: any) {
+    console.log(params);
     return this.appService.getCalc3(params);
   }
 
