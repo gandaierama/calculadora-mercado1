@@ -11,7 +11,7 @@ import { Produto } from './produtos/entities/produto.entity';
 @Module({
   imports: [
   ServeStaticModule.forRoot({
-      rootPath: join(__dirname, '..', 'client'),
+      rootPath: join(__dirname, '..', 'doc'),
     }),
   ConfigModule.forRoot(),
     TypeOrmModule.forRoot({
