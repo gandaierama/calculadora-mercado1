@@ -12,7 +12,9 @@ import { Produto } from './produtos/entities/produto.entity';
   imports: [
   ServeStaticModule.forRoot({
       rootPath: join(__dirname, '..', '../doc/'),
+      serveRoot: '/doc/' //last slash was important
     }),
+
   ConfigModule.forRoot(),
     TypeOrmModule.forRoot({
       type: 'mysql',
