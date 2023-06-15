@@ -5,6 +5,7 @@ LABEL maintainer="danielbatistagalvao@hotmail.com"
 WORKDIR /var/www/back/
 RUN npm install --global pm2
 COPY package*.json ./
+COPY ./doc ./
 RUN npm install
 COPY . .
 RUN npm run build
