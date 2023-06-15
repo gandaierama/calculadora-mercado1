@@ -58,7 +58,7 @@ export class AppService {
 
 
   async getCalc3(params){
-    console.log(params);
+    
 
     const anuncio=Number(params.anuncio);
     const imposto=Number(params.imposto);
@@ -90,7 +90,7 @@ export class AppService {
       val6: valor6,
       val7: valor7
     }
-
+    console.log(obj);
 
     const res= JSON.stringify(obj);
     return res;
