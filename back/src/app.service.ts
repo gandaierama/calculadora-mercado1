@@ -43,6 +43,7 @@ export class AppService {
     let sizeJson = json2.length;
 
     for(let i =0; i < sizeJson; i++ ){
+      console.log(json2[i].id);
             if(json2[i].id==id){
               sub.push(json2[i].children);
             }
