@@ -45,7 +45,7 @@ const urlCalc="http://importadoreslucrativos.com";
 
 			 async function getCategories(){
 
-fetch('http://importadoreslucrativos.com/calc', {
+			return await fetch('http://importadoreslucrativos.com/calc', {
 			    mode: 'no-cors',
 			    method: 'GET'
 			  })
@@ -92,7 +92,7 @@ fetch('http://importadoreslucrativos.com/calc', {
 
 					var elemento = document.getElementById(id);
 							var valor = elemento.value;
-					await getCategories();
+					//await getCategories();
 					object[id]=valor;
 					
 					var custoCheck=Number(object.Fcusto);
@@ -100,26 +100,25 @@ fetch('http://importadoreslucrativos.com/calc', {
 					if(custoCheck > 0){
 						if(custoCheck < 79.99){
 							object["taxa"]=5.00;
+							object["frete"]=0;
 						}else{
 
 						}
 						console.log("Fcusto");
 					}
-
-
 					console.log(object);
 			}
 			async function goCalc(){
 				console.log("docload");
 				whiteBox("box5", "categoria", "Categoria de produto", "select");
-			whiteBox("box6", "subcategoria", "Sub-Categoria de produto", "select");
-			whiteBox("box7", "nicho", "Nicho de produto", "select");
+				whiteBox("box6", "subcategoria", "Sub-Categoria de produto", "select");
+				whiteBox("box7", "nicho", "Nicho de produto", "select");
 
-			whiteBox("box1", "custo", "Custo do produto (R$)", "number");
-			whiteBox("box4", "imposto", "Imposto pago na aquisição da mercadoria", "number");
-			whiteBox("box2", "lucro", "Porcentagem do Lucro Desejado (%)", "number");
-			whiteBox("box3", "taxa", "Taxa Fixa (produto anunciado até R$ 78,99)", "number");
-			whiteBox("res1", "resFase1", "Resultado");						
+				whiteBox("box1", "custo", "Custo do produto (R$)", "number");
+				whiteBox("box4", "imposto", "Imposto pago na aquisição da mercadoria", "number");
+				whiteBox("box2", "lucro", "Porcentagem do Lucro Desejado (%)", "number");
+				whiteBox("box3", "taxa", "Taxa Fixa (produto anunciado até R$ 78,99)", "number");
+				whiteBox("res1", "resFase1", "Resultado");						
 			
 			
 
