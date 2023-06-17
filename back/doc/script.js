@@ -97,7 +97,7 @@
 
 					var elemento = document.getElementById(id);
 							var valor = elemento.value;
-					//await getCategories();
+					await getCategories();
 					object[id]=valor;
 					
 					var custoCheck=Number(object.Fcusto);
