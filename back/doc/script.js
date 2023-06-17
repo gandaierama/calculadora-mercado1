@@ -1,4 +1,4 @@
-const urlCalc="http://importadoreslucrativos.com";
+﻿const urlCalc="http://importadoreslucrativos.com";
 			var object = {};
 			const d=document;
 			function createDom(pai, type, id, className, content){
@@ -62,10 +62,15 @@ const urlCalc="http://importadoreslucrativos.com";
 			  el.setAttribute("class", className);
 			}
 
-			function whiteBox(fase, id, text, type){
+			function whiteBox(fase, id, text, type, visi){
 				var caixa= "div-"+id;
 				createDom("calc", "div", fase, "box", "");
-				createDom(fase, "div", caixa, "white-box", "");
+				if(visi==1){
+					createDom(fase, "div", caixa, "white-box", "");
+				}else{
+					createDom(fase, "div", caixa, "white-box hide", "");
+				}
+				
 				createDom(caixa, "label", "", "label-box", text);
 				if(type=="text")
 					createInTextDom(caixa, "text", "F"+id, "field-text field", "", id, text);
@@ -78,7 +83,7 @@ const urlCalc="http://importadoreslucrativos.com";
 			function blackBox(fase, id, text){
 				var caixa= "div-"+id;
 				createDom("calc", "div", fase, "box", "");
-				createDom(fase, "div", caixa, "white-box", "");
+				createDom(fase, "div", caixa, "black-box hide", "");
 				createDom(caixa, "label", "", "label-box", text);
 				
 			}
@@ -96,13 +101,49 @@ const urlCalc="http://importadoreslucrativos.com";
 					object[id]=valor;
 					
 					var custoCheck=Number(object.Fcusto);
+					var categoriaCheck=object.Fcategoria;
+					var subCheck=object.Fsubcategoria;
+					var nichoCheck=object.Fnicho;
+					var freteCheck=object.Ffrete;
+					var taxaCheck=object.Ftaxa;
+
+
+					if(categoriaCheck!=""){
+						console.log("categoriaCheck");
+
+					}
+
+					if(subCheck!=""){
+						console.log("categoriaCheck");
+					}
+
+					if(categoriaCheck!=""){
+						console.log("categoriaCheck");
+					}
+
 
 					if(custoCheck > 0){
+						var element = document.getElementById("div-imposto");
+ 							element.classList.remove("hide");
+
+ 						var element = document.getElementById("div-lucro");
+ 							element.classList.remove("hide");
+
+ 						var element = document.getElementById("div-formato");
+ 							element.classList.remove("hide");
+
 						if(custoCheck < 79.99){
 							object["taxa"]=5.00;
 							object["frete"]=0;
+							var element = document.getElementById("div-taxa");
+ 							element.classList.remove("hide");
+ 							var element = document.getElementById("div-frete");
+ 							element.classList.add("hide");
 						}else{
-
+							var element = document.getElementById("div-taxa");
+ 							element.classList.add("hide");
+ 							var element = document.getElementById("div-frete");
+ 							element.classList.remove("hide");
 						}
 						console.log("Fcusto");
 					}
@@ -110,14 +151,17 @@ const urlCalc="http://importadoreslucrativos.com";
 			}
 			async function goCalc(){
 				console.log("docload");
-				whiteBox("box5", "categoria", "Categoria de produto", "select");
-				whiteBox("box6", "subcategoria", "Sub-Categoria de produto", "select");
-				whiteBox("box7", "nicho", "Nicho de produto", "select");
+				whiteBox("box5", "categoria", "Categoria de produto", "select", 1);
+				whiteBox("box6", "subcategoria", "Sub-Categoria de produto", "select", 0);
+				whiteBox("box7", "nicho", "Nicho de produto", "select", 0);
 
-				whiteBox("box1", "custo", "Custo do produto (R$)", "number");
-				whiteBox("box4", "imposto", "Imposto pago na aquisição da mercadoria", "number");
-				whiteBox("box2", "lucro", "Porcentagem do Lucro Desejado (%)", "number");
-				whiteBox("box3", "taxa", "Taxa Fixa (produto anunciado até R$ 78,99)", "number");
+				whiteBox("box1", "custo", "Custo do produto (R$)", "number", 1);
+				whiteBox("box4", "imposto", "Imposto pago na aquisição da mercadoria", "number", 0);
+
+				whiteBox("box9", "formato", "Formato do lucro desejado", "select", 0);
+				whiteBox("box2", "lucro", "Porcentagem do Lucro Desejado (%)", "number", 0);
+				whiteBox("box3", "taxa", "Taxa Fixa (produto anunciado até R$ 78,99)", "number", 0);
+				whiteBox("box8", "frete", "Frete (produto anunciado maior que R$ 78,99)", "number", 0);
 				whiteBox("res1", "resFase1", "Resultado");						
 			
 			
