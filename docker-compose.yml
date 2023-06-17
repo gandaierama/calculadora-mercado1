@@ -43,6 +43,17 @@ services:
     restart: always
     ports:
       - 80:80
+      - 443:443
+    volumes:
+      - "./data/certbot/conf:/etc/letsencrypt"
+      - "./data/certbot/www:/var/www/certbot"
+    networks:
+      - new
+  certbot:
+    image: certbot/certbot
+    volumes:
+      - "./data/certbot/conf:/etc/letsencrypt"
+      - "./data/certbot/www:/var/www/certbot"
     networks:
       - new
 networks:
