@@ -1,5 +1,8 @@
 FROM nginx:alpine
 
+RUN apk add --no-cache openssl
+RUN apk add --no-cache bash
+
 # Remove any existing config files
 RUN rm /etc/nginx/conf.d/*
 
