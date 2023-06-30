@@ -18,8 +18,8 @@ RUN rm /etc/nginx/conf.d/*
 
 
 RUN mkdir -p /etc/nginx/sites-available/
-RUN mkdir -p /etc/letsencrypt/live/tsdmotoboys.com.br
-RUN mkdir -p /var/www/certbot/tsdmotoboys.com.br
+RUN mkdir -p /etc/letsencrypt/live/importadoreslucrativos.com
+RUN mkdir -p /var/www/certbot/importadoreslucrativos.com
 
 COPY ./default.conf /etc/nginx/conf.d/
 
