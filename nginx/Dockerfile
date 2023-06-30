@@ -20,7 +20,7 @@ RUN rm /etc/nginx/conf.d/*
 RUN mkdir -p /etc/nginx/sites-available/
 RUN mkdir -p /etc/letsencrypt/live/tsdmotoboys.com.br
 RUN mkdir -p /var/www/certbot/tsdmotoboys.com.br
-COPY gzip.conf hsts.conf /etc/nginx/includes/
+
 COPY ./default.conf /etc/nginx/conf.d/
 
 # Expose the listening port
