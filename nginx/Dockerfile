@@ -19,8 +19,7 @@ RUN rm /etc/nginx/conf.d/*
 
 RUN mkdir -p /etc/nginx/sites-available/
 RUN mkdir -p /etc/letsencrypt/live/importadoreslucrativos.com
-RUN mkdir -p /var/www/certbot/importadoreslucrativos.com
-RUN mkdir -p /var/www/certbot/.well-known/acme-challenge
+
 
 COPY ./default.conf /etc/nginx/conf.d/
 
