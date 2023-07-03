@@ -47,8 +47,8 @@ services:
       - 80:80
       - 443:443
     volumes:
-      - "./data/certbot/conf:/etc/letsencrypt"
-      - "./data/certbot/www:/var/www/certbot"
+      - "./certbot/conf:/etc/letsencrypt"
+      - "./certbot/www:/var/www/certbot"
     
     networks:
       - new
@@ -67,9 +67,9 @@ services:
               - CERTBOT_EMAILS=${CERTBOT_EMAILS}
               - CERTBOT_RSA_KEY_SIZE=${CERTBOT_RSA_KEY_SIZE}
     volumes:
-      - "./data/certbot/conf:/etc/letsencrypt"
-      - "./data/certbot/www:/var/www/certbot"
-    command: certonly --webroot -w /var/www/data/certbot --force-renewal --email {CERTBOT_EMAILS} -d {DOMAINS} --agree-tos
+      - "./certbot/conf:/etc/letsencrypt"
+      - "./certbot/www:/var/www/certbot"
+    command: certonly --webroot -w /var/www/certbot --force-renewal --email {CERTBOT_EMAILS} -d {DOMAINS} --agree-tos
     networks:
     - new
 networks:
