@@ -9,10 +9,10 @@ if [ -z "$DOMAINS" ]; then
   exit 1;
 fi
 
-# until nc -z nginx 80; do
-#   echo "Waiting for nginx to start..."
-#   sleep 5s & wait ${!}
-# done
+until nc -z nginx 80; do
+  echo "Waiting for nginx to start..."
+  sleep 5s & wait ${!}
+done
 
 if [ "$CERTBOT_TEST_CERT" != "0" ]; then
   test_cert_arg="--test-cert"
