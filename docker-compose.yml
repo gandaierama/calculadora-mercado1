@@ -53,7 +53,7 @@ services:
     networks:
       - new
   certbot:
-    image: certbot/certbot:latest
+    image: certbot/certbot
     container_name: certbot
     env_file:
       - ./.env
@@ -66,11 +66,6 @@ services:
               - CERTBOT_TEST_CERT=${CERTBOT_TEST_CERT}
               - CERTBOT_EMAILS=${CERTBOT_EMAILS}
               - CERTBOT_RSA_KEY_SIZE=${CERTBOT_RSA_KEY_SIZE}
-    restart: always
-    build: 
-          context: ./certbot
-          args:
-              - DOMAINS=${DOMAINS}
     volumes:
       - "./data/certbot/conf:/etc/letsencrypt"
       - "./data/certbot/www:/var/www/certbot"
