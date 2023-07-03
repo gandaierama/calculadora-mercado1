@@ -17,10 +17,6 @@ ENV CERTBOT_RSA_KEY_SIZE=$CERTBOT_RSA_KEY_SIZE
 RUN rm /etc/nginx/conf.d/*
 
 
-RUN mkdir -p /etc/nginx/sites-available/
-RUN mkdir -p /etc/letsencrypt/live/importadoreslucrativos.com
-
-
 COPY ./default.conf /etc/nginx/conf.d/
 
 # Expose the listening port
