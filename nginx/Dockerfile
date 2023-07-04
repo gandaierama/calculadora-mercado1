@@ -4,6 +4,10 @@ RUN apk add --no-cache openssl
 RUN apk add --no-cache bash
 
 RUN apk add --no-cache certbot
+RUN apk add --no-cache python2-certbot-nginx
+RUN apk update
+
+
 ARG DOMAINS
 ARG CERTBOT_TEST_CERT
 ARG CERTBOT_EMAILS
