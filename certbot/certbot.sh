@@ -26,10 +26,3 @@ emails_list=($emails_fixed)
 echo $DOMAINS
 
 pwd
-for i in "${!domain_list[@]}"; do
-  domain="${domain_list[i]}"
-
-  mkdir -p "/var/www/certbot/$domain"
-
-  
-done
