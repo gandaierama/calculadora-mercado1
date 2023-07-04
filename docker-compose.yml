@@ -49,29 +49,10 @@ services:
     volumes:
       - "./certbot/conf:/etc/letsencrypt"
       - "./certbot/www:/var/www/certbot"
+    command: certonly --webroot -w /var/www/certbot --force-renewal --email {CERTBOT_EMAILS} -d {DOMAINS} --agree-tos
     
     networks:
       - new
-  certbot:
-    image: certbot/certbot
-    container_name: certbot
-    env_file:
-      - ./.env
-    depends_on:
-      - nginx
-    build:
-          context: ./certbot
-          args:
-              - DOMAINS=${DOMAINS}
-              - CERTBOT_TEST_CERT=${CERTBOT_TEST_CERT}
-              - CERTBOT_EMAILS=${CERTBOT_EMAILS}
-              - CERTBOT_RSA_KEY_SIZE=${CERTBOT_RSA_KEY_SIZE}
-    volumes:
-      - "./certbot/conf:/etc/letsencrypt"
-      - "./certbot/www:/var/www/certbot"
-    command: certonly --webroot -w /var/www/certbot --force-renewal --email {CERTBOT_EMAILS} -d {DOMAINS} --agree-tos
-    networks:
-    - new
 networks:
   new:
 
