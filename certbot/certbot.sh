@@ -22,6 +22,8 @@ domains_fixed=$(echo "$DOMAINS" | tr -d \")
 domain_list=($domains_fixed)
 emails_fixed=$(echo "$CERTBOT_EMAILS" | tr -d \")
 emails_list=($emails_fixed)
+
+echo $DOMAINS
 for i in "${!domain_list[@]}"; do
   domain="${domain_list[i]}"
 
