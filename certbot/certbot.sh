@@ -31,28 +31,5 @@ for i in "${!domain_list[@]}"; do
 
   mkdir -p "/var/www/certbot/$domain"
 
-  if [ -d "/etc/letsencrypt/live/$domain" ]; then
-    echo "Let's Encrypt certificate for $domain already exists"
-    continue
-  fi
-
-  email="${emails_list[i]}"
-  if [ -z "$email" ]; then
-    email_arg="--register-unsafely-without-email"
-    echo "Obtaining the certificate for $domain without email"
-  else
-    email_arg="--email $email"
-    echo "Obtaining the certificate for $domain with email $email"
-  fi
-
-  certbot certonly \
-    --webroot \
-    -w "/var/www/certbot/$domain" \
-    -d "$domain" -d "www.$domain" \
-    $test_cert_arg \
-    $email_arg \
-    --rsa-key-size "${CERTBOT_RSA_KEY_SIZE:-4096}" \
-    --agree-tos \
-    --noninteractive \
-    --verbose || true
+  
 done
