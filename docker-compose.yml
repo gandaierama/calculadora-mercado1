@@ -16,7 +16,7 @@ services:
       - ${MYSQL_PORT}:3306
     command: --innodb-use-native-aio=0
     volumes:
-          - ./database/db/:/var/lib/mysql
+          - "./database/db/:/var/lib/mysql"
     networks:
       - new
   back:
@@ -49,6 +49,7 @@ services:
     volumes:
       - ./certbot/conf:/etc/letsencrypt
       - ./certbot/www:/var/www/certbot
+    # command: certonly --webroot -w /var/www/certbot --force-renewal --email {CERTBOT_EMAILS} -d {DOMAINS} --agree-tos
     
     networks:
       - new
