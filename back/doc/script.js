@@ -178,11 +178,12 @@
 						valorImposto = (custoCheck / 100) * impostoCheck;
 						console.log("impostoCheck", valorImposto);
 						var resposta1 = anuncioCheck + impostoCheck;
-
+						
 						console.log("valor com imposto =", resposta1);
-						var texto  = d.createTextNode("Total (Anúncio + Imposto): "+Number(resposta1));
+						var texto  = "Total (Anúncio + Imposto): "+Number(resposta1);
 						var el=d.getElementById("resFase2");
-			    		el.appendChild(texto);
+
+			    		el.innerHTML=texto;
 	
 					}
 					
