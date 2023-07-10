@@ -27,6 +27,7 @@
 			}
 
 			function createOptionSelectDom(el, text, value, check ){
+				console.log("create op");
 				const newOption2 = d.createElement('option');
 				const optionText2 = d.createTextNode(text);
 				// set option text
@@ -104,12 +105,14 @@
 				  	console.log("Response",res1.data);
 
 				  	const arr= res1.data;
-				  	const arr2= arr;
-				  	const sizeArr= arr2.lenght;
+
+				  	const sizeArr= arr.lenght;
+				  	console.log("Response0",arr);
+				  	console.log("Response1",sizeArr);
 				  	var el = d.getElementById("Fcategoria");
 				  	for(let i=0; i< sizeArr; i++ ){
 				  		var obj=arr2[i];	
-				  		console.log("Response",obj);
+				  		console.log("Response3",obj);
 				  		createOptionSelectDom(el, obj.name, obj.id, 0 );
 
 				  	}
