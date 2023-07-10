@@ -106,7 +106,7 @@
 
 				  	const arr= res1.data;
 
-				  	const sizeArr= arr.lenght;
+				  	const sizeArr= arr.length;
 				  	console.log("Response0",arr);
 				  	console.log("Response1",sizeArr);
 				  	var el = d.getElementById("Fcategoria");
