@@ -103,11 +103,12 @@
 				  	const res1 = await response.json();
 				  	console.log("Response",res1.data);
 
-				  	const arr= JSON.parse(res1.data);
-				  	const sizeArr= arr.lenght;
+				  	const arr= JSON.stringify(res1.data);
+				  	const arr2= JSON.parse(arr);
+				  	const sizeArr= arr2.lenght;
 				  	var el = d.getElementById("categoria");
 				  	for(let i=0; i< sizeArr; i++ ){
-				  		var obj=arr[i];	
+				  		var obj=arr2[i];	
 
 				  		createOptionSelectDom(el, obj.name, obj.id, 0 );
 
