@@ -91,7 +91,7 @@
 
 				const response = await fetch(url, {
 			    keepalive: true,
-	
+			    mode: 'no-cors',
 			    method: 'GET'
 				}).then(res =>  {
 	   			const res1= JSON.stringify(res);
