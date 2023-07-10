@@ -15,17 +15,17 @@ import { Produto } from './produtos/entities/produto.entity';
       serveRoot: '/doc/' //last slash was important
     }),
 
-  ConfigModule.forRoot(),
-    TypeOrmModule.forRoot({
-      type: 'mysql',
-      host: 'database',
-      port: 3306,
-      username: 'root',
-      password: 'test',
-      database: 'db_main',
-      entities: ['dist/**/*.entity{.ts,.js}'],
-      synchronize: true,
-    }),
+  // ConfigModule.forRoot(),
+  //   TypeOrmModule.forRoot({
+  //     type: 'mysql',
+  //     host: 'database',
+  //     port: 3306,
+  //     username: 'root',
+  //     password: 'test',
+  //     database: 'db_main',
+  //     entities: ['dist/**/*.entity{.ts,.js}'],
+  //     synchronize: true,
+  //   }),
   ProdutosModule],
   controllers: [AppController],
   providers: [AppService],

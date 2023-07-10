@@ -9,29 +9,21 @@ export class AppService {
     return 'Hello World!';
   }
 
-
-
   async getCalc1(){
-
     var sub=[];
     var sub1;
     let json1= await JSON.stringify(categories);
     let json2= await JSON.parse(json1);
-
     let sizeJson = json2.length;
 
-    for(let i =0; i < sizeJson; i++ ){
-         
-            sub.push({name: json2[i].name, id: json2[i].id});
+    for(let i =0; i < sizeJson; i++ ){   
+      sub.push({name: json2[i].name, id: json2[i].id});
     }
-
-
     sub1= await JSON.stringify({data:sub});
     console.log(sub1);
-
-
     return sub1;
   }
+
 
   async getCalc2(params){
     console.log(params);
@@ -41,16 +33,12 @@ export class AppService {
     let json2= JSON.parse(json1);
     var id=params;
     let sizeJson = json2.length;
-
     for(let i =0; i < sizeJson; i++ ){
-      console.log(json2[i].id);
-            if(json2[i].id==id){
-              sub.push(json2[i].children);
-            }
-            
+        if(json2[i].id==id){
+          sub.push(json2[i].children);
+        }
     }
     console.log(sub);
-
     sub1= JSON.stringify(sub);
     return sub1;
   }
@@ -58,8 +46,6 @@ export class AppService {
 
 
   async getCalc3(params){
-    
-
     const anuncio=Number(params.anuncio);
     const imposto=Number(params.imposto);
     const custo=Number(params.custo);
@@ -67,8 +53,6 @@ export class AppService {
     const taxa=Number(params.taxa);
     const formato=Number(params.formato);
     const lucro=Number(params.lucro);
-
-
     let valor1=anuncio+ imposto;
     let valor2=custo + lucro + taxa;
     let valor3=custo + lucro + frete;
@@ -76,11 +60,7 @@ export class AppService {
     let valor5= valor2 / ((1 - valor1)/100);
     let valor6=valor3 / ((1 - valor1)/100);
     let valor7=(custo + (custo * (lucro/100)) ) -custo;
-
-
     let obj;
-
-
     obj={
       val1: valor1,
       val2: valor2,
@@ -91,11 +71,8 @@ export class AppService {
       val7: valor7
     }
     console.log(obj);
-
     const res= JSON.stringify(obj);
     return res;
   }
-
-  
 
 }
