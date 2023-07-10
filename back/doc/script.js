@@ -1,5 +1,6 @@
 ﻿const urlCalc="http://importadoreslucrativos.com";
 			var object = {Fimposto:0, Fcusto:0, Fanuncio:0};
+			var subs;
 			const d=document;
 
 			function createDom(pai, type, id, className, content){
@@ -27,7 +28,6 @@
 			}
 
 			function createOptionSelectDom(el, text, value, check ){
-				console.log("create op");
 				const newOption2 = d.createElement('option');
 				const optionText2 = d.createTextNode(text);
 				// set option text
@@ -38,18 +38,7 @@
 				el.appendChild(newOption2);
 			}
 
-			function createOptionSelectDom2( text, value, check ){
-				const el = document.getElementById("Fcategoria");
-				console.log("create op", el);
-				const newOption2 = d.createElement('option');
-				const optionText2 = d.createTextNode(text);
-				// set option text
-				newOption2.appendChild(optionText2);
-				// and option value
-				newOption2.setAttribute('value', value);
-				if(check==1) newOption2.setAttribute('checked',"checked");
-				el.appendChild(newOption2);
-			}
+
 
 			function createInSelectDom(pai, type, id, className, value, name, place){
 			    var elemento_pai = d.getElementById(pai);
@@ -98,13 +87,8 @@
 				createDom(caixa, "div", id, "", "");
 			}
 
-
-
 			 async function getCategories(){
 			 	const url = 'https://importadoreslucrativos.com/calc';
-
-
-
 			 	try {
 				  const response = await fetch(url, {
 				    keepalive: true,
@@ -115,36 +99,40 @@
 					  }
 					});
 				  	const res1 = await response.json();
-				  	console.log("Response",res1.data);
-
 				  	const arr= res1.data;
-
 				  	const sizeArr= arr.length;
-				  	console.log("Response0",arr);
-				  	console.log("Response1",sizeArr);
-				  	
+				  	const el = document.getElementById("Fcategoria");
 				  	for(let i=0; i< sizeArr; i++ ){
 				  		var obj=arr[i];	
-				  		console.log("Response3",obj);
-				  		
-				  		createOptionSelectDom2( obj.name, obj.id, 0 );
-
+				  		createOptionSelectDom(el, obj.name, obj.id, 0 );
 				  	}
-
 				} catch(err) {
 				  console.log(err); // Failed to fetch
 				}
-				
-				// return await fetch('https://importadoreslucrativos.com/calc', {
-				//     mode: 'no-cors',
-				//     method: 'GET'
-				//   })
-			   //       .then(response =>  {
-			   // 			const res1= JSON.stringify(response);	
-			   //          console.log(response);
-			   //       });
-							
+			}
 
+			 async function getSubCategories(id){
+			 	const url = 'https://importadoreslucrativos.com/calc2/'+id;
+			 	try {
+				  const response = await fetch(url, {
+				    keepalive: true,
+				    mode: 'no-cors',
+				    method: 'GET',
+				    headers: {
+					    'Content-Type': 'application/json'
+					  }
+					});
+				  	const res1 = await response.json();
+				  	const arr= res1.data;
+				  	const sizeArr= arr.length;
+				  	const el = document.getElementById("Fsubcategoria");
+				  	for(let i=0; i< sizeArr; i++ ){
+				  		var obj=arr[i];	
+				  		createOptionSelectDom(el, obj.name, obj.id, 0 );
+				  	}
+				} catch(err) {
+				  console.log(err); // Failed to fetch
+				}
 			}
 
 

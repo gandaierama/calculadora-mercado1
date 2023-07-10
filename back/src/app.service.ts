@@ -20,13 +20,11 @@ export class AppService {
       sub.push({name: json2[i].name, id: json2[i].id});
     }
     sub1= await JSON.stringify({data:sub});
-    console.log(sub1);
     return sub1;
   }
 
 
   async getCalc2(params){
-    console.log(params);
     var sub=[];
     var sub1;
     let json1= JSON.stringify(categories);
@@ -38,8 +36,7 @@ export class AppService {
           sub.push(json2[i].children);
         }
     }
-    console.log(sub);
-    sub1= JSON.stringify(sub);
+    sub1= await JSON.stringify({data:sub});
     return sub1;
   }
 
