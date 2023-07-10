@@ -111,7 +111,7 @@
 				  	console.log("Response1",sizeArr);
 				  	var el = d.getElementById("Fcategoria");
 				  	for(let i=0; i< sizeArr; i++ ){
-				  		var obj=arr2[i];	
+				  		var obj=arr[i];	
 				  		console.log("Response3",obj);
 				  		createOptionSelectDom(el, obj.name, obj.id, 0 );
 
