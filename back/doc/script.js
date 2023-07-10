@@ -125,11 +125,12 @@
 				  	const res1 = await response.json();
 				  	const arr= res1.data;
 				  	const sizeArr= arr.length;
-				  	const el = document.getElementById("Fsubcategoria");
+				  	const el = d.getElementById("Fsubcategoria");
 				  	for(let i=0; i< sizeArr; i++ ){
 				  		var obj=arr[i];	
 				  		createOptionSelectDom(el, obj.name, obj.id, 0 );
 				  	}
+				  	d.getElementById("div-subcategoria").classList.remove("hide");
 				} catch(err) {
 				  console.log(err); // Failed to fetch
 				}
@@ -168,6 +169,7 @@
 					
 					if(categoriaCheck!=""){
 						console.log("categoriaCheck");
+						await getSubCategories(categoriaCheck);
 					}
 					if(subCheck!=""){
 						console.log("categoriaCheck");
