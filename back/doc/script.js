@@ -38,6 +38,19 @@
 				el.appendChild(newOption2);
 			}
 
+			function createOptionSelectDom2( text, value, check ){
+				const el = d.getElementById("Fcategoria");
+				console.log("create op", el);
+				const newOption2 = d.createElement('option');
+				const optionText2 = d.createTextNode(text);
+				// set option text
+				newOption2.appendChild(optionText2);
+				// and option value
+				newOption2.setAttribute('value', value);
+				if(check==1) newOption2.setAttribute('checked',"checked");
+				el.appendChild(newOption2);
+			}
+
 			function createInSelectDom(pai, type, id, className, value, name, place){
 			    var elemento_pai = d.getElementById(pai);
 			    var el = d.createElement("select");
@@ -113,8 +126,8 @@
 				  	for(let i=0; i< sizeArr; i++ ){
 				  		var obj=arr[i];	
 				  		console.log("Response3",obj);
-				  		var el = d.getElementById("Fcategoria");
-				  		createOptionSelectDom(el, obj.name, obj.id, 0 );
+				  		
+				  		createOptionSelectDom2( obj.name, obj.id, 0 );
 
 				  	}
 
