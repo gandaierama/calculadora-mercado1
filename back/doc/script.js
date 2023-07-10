@@ -106,7 +106,7 @@
 				  	const arr= res1.data;
 				  	const arr2= arr;
 				  	const sizeArr= arr2.lenght;
-				  	var el = d.getElementById("categoria");
+				  	var el = d.getElementById("Fcategoria");
 				  	for(let i=0; i< sizeArr; i++ ){
 				  		var obj=arr2[i];	
 
