@@ -109,10 +109,11 @@
 				  	const sizeArr= arr.length;
 				  	console.log("Response0",arr);
 				  	console.log("Response1",sizeArr);
-				  	var el = d.getElementById("Fcategoria");
+				  	
 				  	for(let i=0; i< sizeArr; i++ ){
 				  		var obj=arr[i];	
 				  		console.log("Response3",obj);
+				  		var el = d.getElementById("Fcategoria");
 				  		createOptionSelectDom(el, obj.name, obj.id, 0 );
 
 				  	}
