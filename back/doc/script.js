@@ -89,18 +89,19 @@
 			 async function getCategories(){
 			 	const url = 'https://importadoreslucrativos.com/calc';
 
-				const response = await fetch(url, {
-			    keepalive: true,
-			    mode: 'no-cors',
-			    method: 'GET'
-				}).then(res =>  {
-	   			const res1= JSON.stringify(res);
-	            console.log(res, res1, "teste");
-	         });
 
-		
 
-				console.log("Response",response);
+			 	try {
+				  const response = await fetch(url, {
+				    keepalive: true,
+				    mode: 'no-cors',
+				    method: 'GET'
+					});
+				  	console.log("Response",response);
+				} catch(err) {
+				  alert(err); // Failed to fetch
+				}
+				
 				// return await fetch('https://importadoreslucrativos.com/calc', {
 				//     mode: 'no-cors',
 				//     method: 'GET'
