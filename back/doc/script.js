@@ -95,9 +95,13 @@
 				  const response = await fetch(url, {
 				    keepalive: true,
 				    mode: 'no-cors',
-				    method: 'GET'
+				    method: 'GET',
+				    headers: {
+					    'Content-Type': 'application/json'
+					  }
 					});
-				  	console.log("Response",response);
+				  	const res1 = await response.json();
+				  	console.log("Response",res1);
 				} catch(err) {
 				  alert(err); // Failed to fetch
 				}
