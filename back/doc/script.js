@@ -101,7 +101,18 @@
 					  }
 					});
 				  	const res1 = await response.json();
-				  	console.log("Response",res1);
+				  	console.log("Response",res1.data);
+
+				  	const arr= JSON.parse(res1.data);
+				  	const sizeArr= arr.lenght;
+				  	var el = d.getElementById("categorias");
+				  	for(let i=0; i< sizeArr; i++ ){
+				  		var obj=arr[i];	
+
+				  		createOptionSelectDom(el, obj.name, obj.id, 0 );
+
+				  	}
+
 				} catch(err) {
 				  alert(err); // Failed to fetch
 				}
