@@ -105,7 +105,7 @@
 
 				  	const arr= JSON.parse(res1.data);
 				  	const sizeArr= arr.lenght;
-				  	var el = d.getElementById("categorias");
+				  	var el = d.getElementById("categoria");
 				  	for(let i=0; i< sizeArr; i++ ){
 				  		var obj=arr[i];	
 
@@ -138,7 +138,7 @@
 					var elemento = d.getElementById(id);
 					var valor = elemento.value;
 
-					await getCategories();
+					
 					object[id]=valor;
 					
 					var custoCheck=Number(object.Fcusto);
@@ -216,6 +216,7 @@
 
 
 async function goCalc(){
+	await getCategories();
 	console.log("docload");
 	whiteBox("box5", "categoria", "Categoria de produto", "select", 1);
 	whiteBox("box6", "subcategoria", "Sub-Categoria de produto", "select", 0);
