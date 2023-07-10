@@ -123,7 +123,7 @@
 					  }
 					});
 				  	const res1 = await response.json();
-				  	const arr= res1.data;
+				  	const arr= res1.data[0];
 				  	const sizeArr= arr.length;
 				  	const el = d.getElementById("Fsubcategoria");
 				  	for(let i=0; i< sizeArr; i++ ){
