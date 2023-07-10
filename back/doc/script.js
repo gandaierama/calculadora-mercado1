@@ -39,7 +39,7 @@
 			}
 
 			function createOptionSelectDom2( text, value, check ){
-				const el = d.getElementById("Fcategoria");
+				const el = document.getElementById("Fcategoria");
 				console.log("create op", el);
 				const newOption2 = d.createElement('option');
 				const optionText2 = d.createTextNode(text);
@@ -234,7 +234,7 @@
 
 
 async function goCalc(){
-	await getCategories();
+
 	console.log("docload");
 	whiteBox("box5", "categoria", "Categoria de produto", "select", 1);
 	whiteBox("box6", "subcategoria", "Sub-Categoria de produto", "select", 0);
@@ -249,7 +249,8 @@ async function goCalc(){
 	whiteBox("box10", "lucro2", "Valor em Moeda do Lucro Desejado (R$)", "number", 0);
 	whiteBox("box3", "taxa", "Taxa Fixa (produto anunciado até R$ 78,99)", "number", 0);
 	whiteBox("box8", "frete", "Frete (produto anunciado maior que R$ 78,99)", "number", 0);
-	blackBox("res1", "resFase1", "Resultado");						
+	blackBox("res1", "resFase1", "Resultado");	
+		await getCategories();					
 }
 
 
