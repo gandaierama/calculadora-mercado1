@@ -109,7 +109,7 @@
 				  	var el = d.getElementById("Fcategoria");
 				  	for(let i=0; i< sizeArr; i++ ){
 				  		var obj=arr2[i];	
-
+				  		console.log("Response",obj);
 				  		createOptionSelectDom(el, obj.name, obj.id, 0 );
 
 				  	}
