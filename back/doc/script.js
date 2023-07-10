@@ -114,7 +114,7 @@
 				  	}
 
 				} catch(err) {
-				  alert(err); // Failed to fetch
+				  console.log(err); // Failed to fetch
 				}
 				
 				// return await fetch('https://importadoreslucrativos.com/calc', {
