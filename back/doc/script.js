@@ -146,8 +146,6 @@
 			async function getNicho(child){
 
 			 	try {
-					
-				  
 				  	const arr= child;
 				  	const sizeArr= arr.length;
 				  	const el = document.getElementById("Fnicho");
