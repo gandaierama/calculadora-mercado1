@@ -38,7 +38,12 @@
 				el.appendChild(newOption2);
 			}
 
-
+			function removeOptions(selectElement) {
+			   var i, L = selectElement.options.length - 1;
+			   for(i = L; i >= 0; i--) {
+			      selectElement.remove(i);
+			   }
+			}
 
 			function createInSelectDom(pai, type, id, className, value, name, place){
 			    var elemento_pai = d.getElementById(pai);
@@ -126,6 +131,7 @@
 				  	const arr= res1.data[0];
 				  	const sizeArr= arr.length;
 				  	const el = d.getElementById("Fsubcategoria");
+				  	removeOptions(el);
 				  	for(let i=0; i< sizeArr; i++ ){
 				  		var obj=arr[i];	
 				  		createOptionSelectDom(el, obj.name, obj.id, 0 );
@@ -137,7 +143,23 @@
 			}
 
 
+			async function getNicho(child){
 
+			 	try {
+					
+				  
+				  	const arr= child;
+				  	const sizeArr= arr.length;
+				  	const el = document.getElementById("Fnicho");
+				  	for(let i=0; i< sizeArr; i++ ){
+				  		var obj=arr[i];	
+				  		createOptionSelectDom(el, obj.name, obj.id, 0 );
+				  	}
+				  	d.getElementById("div-nicho").classList.remove("hide");
+				} catch(err) {
+				  console.log(err); // Failed to fetch
+				}
+			}
 
 			async function campo1(e){
 					var alvo = e.target;
