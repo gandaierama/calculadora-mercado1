@@ -39,8 +39,8 @@
 			}
 
 			function removeOptions(selectElement) {
-			   var i, L = selectElement.options.length - 1;
-			   for(i = L; i >= 0; i--) {
+			   var size= selectElement.options.length;
+			   for(let i = 0; i < size; i++) {
 			      selectElement.remove(i);
 			   }
 			}
