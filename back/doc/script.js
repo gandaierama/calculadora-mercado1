@@ -177,11 +177,11 @@
 					var alvo = e.target;
 					var id = alvo.id;
 					console.log(id);
-					var elemento = await d.getElementById(id);
+					var elemento =  d.getElementById(id);
 					var valor = elemento.value;
 
 					
-					await object[id]=valor;
+					object[id]=valor;
 					
 					var custoCheck=Number(object.Fcusto);
 					var categoriaCheck=object.Fcategoria;
