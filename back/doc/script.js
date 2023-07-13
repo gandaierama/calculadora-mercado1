@@ -177,7 +177,7 @@
 					var alvo = e.target;
 					var id = alvo.id;
 					console.log(id);
-					var elemento = await d.getElementById(id);
+					var elemento = d.getElementById(id);
 					var valor = elemento.value;
 
 					
