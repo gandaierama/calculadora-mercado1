@@ -130,7 +130,7 @@
 				  	object.sub=arr;
 				  	const sizeArr= arr.length;
 				  	const el = d.getElementById("Fsubcategoria");
-				  	removeOptions(el);
+				  	await removeOptions(el);
 				  	createOptionSelectDom(el, 'Escolha uma opção', '', 0 );
 				  	for(let i=0; i< sizeArr; i++ ){
 				  		var obj=arr[i];	
@@ -149,7 +149,7 @@
 				  	const arr= object.sub;
 				  	const sizeArr= arr.length;
 				  	const el = document.getElementById("Fnicho");
-				  	removeOptions(el);
+				  	await removeOptions(el);
 				  	createOptionSelectDom(el, 'Escolha uma opção', '', 0 );
 					for(let i=0; i< sizeArr; i++ ){
 
@@ -177,11 +177,11 @@
 					var alvo = e.target;
 					var id = alvo.id;
 					console.log(id);
-					var elemento = d.getElementById(id);
+					var elemento = await d.getElementById(id);
 					var valor = elemento.value;
 
 					
-					object[id]=valor;
+					await object[id]=valor;
 					
 					var custoCheck=Number(object.Fcusto);
 					var categoriaCheck=object.Fcategoria;
