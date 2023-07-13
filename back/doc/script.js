@@ -93,7 +93,7 @@
 			}
 
 			 async function getCategories(){
-			 	const url = 'http://localhost:3000/calc';
+			 	const url = 'https://importadoreslucrativos.com/calc';
 			 	try {
 				  const response = await fetch(url, {
 				    keepalive: true,
@@ -115,7 +115,7 @@
 			}
 
 			 async function getSubCategories(id){
-			 	const url = 'http://localhost:3000/calc2/'+id;
+			 	const url = 'https://importadoreslucrativos.com/calc2/'+id;
 			 	try {
 				  const response = await fetch(url, {
 				    keepalive: true,
@@ -175,7 +175,7 @@
 
 			async function campo1(e){
 					var alvo = e.target;
-					var id = alvo.id;
+					var id = alvo./id;
 					console.log(id);
 					var elemento = d.getElementById(id);
 					var valor = elemento.value;
