@@ -93,16 +93,14 @@
 			}
 
 			 async function getCategories(){
-			 	const url = 'https://importadoreslucrativos.com/calc';
+			 	const url = 'http://localhost:3000/calc';
 			 	try {
 				  const response = await fetch(url, {
 				    keepalive: true,
 				    mode: 'no-cors',
-				    method: 'GET',
-				    headers: {
-					    'Content-Type': 'application/json'
-					  }
+				    method: 'GET'
 					});
+				   console.log(response);
 				  	const res1 = await response.json();
 				  	const arr= res1.data;
 				  	const sizeArr= arr.length;
@@ -117,7 +115,7 @@
 			}
 
 			 async function getSubCategories(id){
-			 	const url = 'https://importadoreslucrativos.com/calc2/'+id;
+			 	const url = 'http://localhost:3000/calc2/'+id;
 			 	try {
 				  const response = await fetch(url, {
 				    keepalive: true,
@@ -129,9 +127,11 @@
 					});
 				  	const res1 = await response.json();
 				  	const arr= res1.data[0];
+				  	object.sub=arr;
 				  	const sizeArr= arr.length;
 				  	const el = d.getElementById("Fsubcategoria");
 				  	removeOptions(el);
+				  	createOptionSelectDom(el, 'Escolha uma opção', '', 0 );
 				  	for(let i=0; i< sizeArr; i++ ){
 				  		var obj=arr[i];	
 				  		createOptionSelectDom(el, obj.name, obj.id, 0 );
@@ -146,14 +146,28 @@
 			async function getNicho(child){
 
 			 	try {
-				  	const arr= child;
+				  	const arr= object.sub;
 				  	const sizeArr= arr.length;
 				  	const el = document.getElementById("Fnicho");
-				  	for(let i=0; i< sizeArr; i++ ){
-				  		var obj=arr[i];	
-				  		createOptionSelectDom(el, obj.name, obj.id, 0 );
-				  	}
+				  	removeOptions(el);
+				  	createOptionSelectDom(el, 'Escolha uma opção', '', 0 );
+					for(let i=0; i< sizeArr; i++ ){
+
+						
+						var obj=arr[i];	
+						if(object.Fsubcategoria==obj.id){
+							console.log("child", obj.children);
+							const arr2= obj.children;
+				  			const sizeArr2= arr2.length;
+				  			for(let i2=0; i2< sizeArr; i2++ ){
+				  				createOptionSelectDom(el, arr2[i2].name, arr2[i2].id, 0 );
+				  			}
+							
+						}
+						
+					}
 				  	d.getElementById("div-nicho").classList.remove("hide");
+				  	console.log("Nicho",object.sub);
 				} catch(err) {
 				  console.log(err); // Failed to fetch
 				}
@@ -162,6 +176,7 @@
 			async function campo1(e){
 					var alvo = e.target;
 					var id = alvo.id;
+					console.log(id);
 					var elemento = d.getElementById(id);
 					var valor = elemento.value;
 
@@ -189,14 +204,16 @@
 					
 					if(categoriaCheck!=""){
 						console.log("categoriaCheck");
+						var el=d.getElementById("Fsubcategoria");
+						removeOptions(el);
 						await getSubCategories(categoriaCheck);
 					}
 					if(subCheck!=""){
-						console.log("categoriaCheck");
+						var el=d.getElementById("Fnicho");
+						removeOptions(el);
+						await getNicho(subCheck);
 					}
-					if(categoriaCheck!=""){
-						console.log("categoriaCheck");
-					}
+			
 
 					if(custoCheck > 0){
 						d.getElementById("div-imposto").classList.remove("hide");
