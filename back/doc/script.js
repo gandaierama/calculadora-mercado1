@@ -175,7 +175,7 @@
 
 			async function campo1(e){
 					var alvo = e.target;
-					var id = alvo./id;
+					var id = alvo.id;
 					console.log(id);
 					var elemento = d.getElementById(id);
 					var valor = elemento.value;
