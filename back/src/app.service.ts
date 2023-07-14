@@ -21,7 +21,7 @@ export class AppService {
 
     const $ = cheerio.load(response.data);
     const response2 =$('div[class=card-list]').html();
-    return response;
+    return response2;
   })
   .catch(function (error) {
     // handle error
