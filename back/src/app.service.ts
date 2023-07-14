@@ -1,10 +1,19 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, Logger } from '@nestjs/common';
 import axios from 'axios';
 import { Produto } from './produtos/entities/produto.entity';
 import categories from '../categories.json';
 
 @Injectable()
 export class AppService {
+
+  private readonly logger = new Logger(TasksService.name);
+
+  @Cron('45 * * * * *')
+  handleCron() {
+    this.logger.debug('Called when the current second is 45');
+  }
+
+  
   getHello(): string {
     return 'Hello World!';
   }
