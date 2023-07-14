@@ -3,6 +3,9 @@ import axios from 'axios';
 import { Produto } from './produtos/entities/produto.entity';
 import categories from '../categories.json';
 import { Cron } from '@nestjs/schedule';
+import * as cheerio from 'cheerio';
+
+
 @Injectable()
 export class AppService {
 
@@ -15,6 +18,9 @@ export class AppService {
   .then(function (response) {
     // handle success
     console.log(response);
+
+    const $ = cheerio.load(response);
+    const response2 =$('div[class=card-list]').html();
     return response;
   })
   .catch(function (error) {
