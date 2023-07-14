@@ -10,10 +10,21 @@ export class AppService {
 
   @Cron('45 * * * * *')
   handleCron() {
+
+    const result = await axios({
+        url: "https://importadoreslucrativos.com/calc/",
+        method: 'GET',
+        timeout: 3000,
+        httpsAgent: new https.Agent({
+            rejectUnauthorized: false,
+        }),
+    });
+
+    this.logger.debug(result);
     this.logger.debug('Called when the current second is 45');
   }
 
-  
+
   getHello(): string {
     return 'Hello World!';
   }
