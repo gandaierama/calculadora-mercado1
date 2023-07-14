@@ -9,17 +9,22 @@ export class AppService {
   private readonly logger = new Logger(AppService.name);
 
   @Cron('45 * * * * *')
-  handleCron() {
+  async handleCron() {
 
-    const result = await axios({
-        url: "https://importadoreslucrativos.com/calc/",
-        method: 'GET',
-        timeout: 3000,
-        httpsAgent: new https.Agent({
-            rejectUnauthorized: false,
-        }),
-    });
-
+   const result = await  axios.get('https://importadoreslucrativos.com/calc/')
+  .then(function (response) {
+    // handle success
+    console.log(response);
+    return response;
+  })
+  .catch(function (error) {
+    // handle error
+    console.log(error);
+    return error;
+  })
+  .then(function () {
+    // always executed
+  });
     this.logger.debug(result);
     this.logger.debug('Called when the current second is 45');
   }
