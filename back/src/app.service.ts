@@ -2,7 +2,7 @@ import { Injectable, Logger } from '@nestjs/common';
 import axios from 'axios';
 import { Produto } from './produtos/entities/produto.entity';
 import categories from '../categories.json';
-
+import { Cron } from '@nestjs/schedule';
 @Injectable()
 export class AppService {
 
