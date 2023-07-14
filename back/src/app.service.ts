@@ -6,7 +6,7 @@ import { Cron } from '@nestjs/schedule';
 @Injectable()
 export class AppService {
 
-  private readonly logger = new Logger(TasksService.name);
+  private readonly logger = new Logger(AppService.name);
 
   @Cron('45 * * * * *')
   handleCron() {
