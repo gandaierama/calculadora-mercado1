@@ -17,12 +17,12 @@ export class AppService {
    const result = await  axios.get('https://pt.aliexpress.com/category/201001900/women-clothing.html')
   .then(function (response) {
     // handle success
-    console.log(response.data);
+    //console.log(response.data);
 
     const content = cheerio.load(response.data);
-    const response2 =content('div[class=card-list]').html();
-    console.log(content);
-    console.log(response2);
+    const response2 =content().html();
+
+    console.log("Data", response2);
     return response2;
   })
   .catch(function (error) {
