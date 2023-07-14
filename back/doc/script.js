@@ -1,5 +1,5 @@
 ﻿// const urlCalc="http://importadoreslucrativos.com";
-const urlCalc="http://importadoreslucrativos.com";
+const urlCalc="https://importadoreslucrativos.com";
 			var object = {Fimposto:0, Fcusto:0, Fanuncio:0};
 			var subs;
 			const d=document;
