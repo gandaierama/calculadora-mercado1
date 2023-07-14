@@ -11,7 +11,7 @@ export class AppService {
   @Cron('45 * * * * *')
   async handleCron() {
 
-   const result = await  axios.get('https://importadoreslucrativos.com/calc/')
+   const result = await  axios.get('https://pt.aliexpress.com/category/201001900/women-clothing.html')
   .then(function (response) {
     // handle success
     console.log(response);
