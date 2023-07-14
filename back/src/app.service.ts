@@ -20,7 +20,7 @@ export class AppService {
     //console.log(response.data);
 
     const content = cheerio.load(response.data);
-    const response2 =content("div").html();
+    const response2 =content("div" , "#card-list").html();
 
     console.log("Data", response2);
     return response2;
