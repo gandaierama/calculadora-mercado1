@@ -1,4 +1,5 @@
-﻿const urlCalc="http://importadoreslucrativos.com";
+﻿// const urlCalc="http://importadoreslucrativos.com";
+const urlCalc="http://localhost:3000";
 			var object = {Fimposto:0, Fcusto:0, Fanuncio:0};
 			var subs;
 			const d=document;
@@ -39,10 +40,12 @@
 			}
 
 			function removeOptions(selectElement) {
-			   var size= selectElement.options.length;
-			   for(let i = 0; i < size; i++) {
-			      selectElement.remove(i);
-			   }
+			   let select_item = selectElement;
+				let options = select_item.getElementsByTagName('option');
+
+				for (var i=options.length; i--;) {
+				    select_item.removeChild(options[i]);
+				}
 			}
 
 			function createInSelectDom(pai, type, id, className, value, name, place){
@@ -93,7 +96,7 @@
 			}
 
 			 async function getCategories(){
-			 	const url = 'https://importadoreslucrativos.com/calc';
+			 	const url = urlCalc+'/calc';
 			 	try {
 				  const response = await fetch(url, {
 				    keepalive: true,
@@ -115,7 +118,7 @@
 			}
 
 			 async function getSubCategories(id){
-			 	const url = 'https://importadoreslucrativos.com/calc2/'+id;
+			 	const url = urlCalc+'/calc2/'+id;
 			 	try {
 				  const response = await fetch(url, {
 				    keepalive: true,
@@ -202,13 +205,15 @@
 			    		el.innerHTML=texto;
 					}
 					
-					if(categoriaCheck!=""){
+					if(id=="Fcategoria" && categoriaCheck!=""){
 						console.log("categoriaCheck");
 						var el=d.getElementById("Fsubcategoria");
 						removeOptions(el);
+						var el2=d.getElementById("Fnicho");
+						removeOptions(el2);
 						await getSubCategories(categoriaCheck);
 					}
-					if(subCheck!=""){
+					if(id=="Fsubcategoria" &&  subCheck!=""){
 						var el=d.getElementById("Fnicho");
 						removeOptions(el);
 						await getNicho(subCheck);
