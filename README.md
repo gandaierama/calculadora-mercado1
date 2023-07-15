@@ -1,2 +1,1 @@
-# calculadora-mercado1
-calculadora-mercado1
+# ali-images

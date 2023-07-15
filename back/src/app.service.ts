@@ -42,6 +42,80 @@ export class AppService {
     return 'Hello World!';
   }
 
+
+
+ async getImage(){
+  const accessKeyId="LTAI5t6wj5c71aKhbBAdANs6";
+  const apiKey = "ZllWBRXVayVELeUR3NJ5UVJyPcu3lf";  
+  const result = await  axios.get('http://imagesearch.cn-shanghai.aliyuncs.com/v2/image/search',
+  {
+    
+  }
+
+    )
+  .then(function (response) {
+    // handle success
+    //console.log(response.data);
+
+    const content = cheerio.load(response.data);
+    const response2 =content.html();
+
+    console.log("Data", response2);
+    return response2;
+  })
+  .catch(function (error) {
+    // handle error
+    console.log(error);
+    return error;
+  })
+  .then(function () {
+    // always executed
+  });
+
+
+    sub1= await JSON.stringify({data:result});
+    return sub1;
+  }
+
+
+  async getImage2(){
+  
+  const apiKey = "";  
+  const result = await  axios.get('http://imagesearch.cn-shanghai.aliyuncs.com/v2/image/search')
+  .then(function (response) {
+    // handle success
+    //console.log(response.data);
+
+    const content = cheerio.load(response.data);
+    const response2 =content.html();
+
+    console.log("Data", response2);
+    return response2;
+  })
+  .catch(function (error) {
+    // handle error
+    console.log(error);
+    return error;
+  })
+  .then(function () {
+    // always executed
+  });
+
+
+    sub1= await JSON.stringify({data:result});
+    return sub1;
+  }
+
+
+
+
+
+
+
+
+
+
+///////////
   async getCalc1(){
     var sub=[];
     var sub1;
