@@ -5,14 +5,20 @@ import categories from '../categories.json';
 import { Cron } from '@nestjs/schedule';
 import * as cheerio from 'cheerio';
 
+import type { Browser } from 'puppeteer';
+import { InjectBrowser } from 'nest-puppeteer';
+
 
 @Injectable()
 export class AppService {
+    constructor(@InjectBrowser() private readonly browser: Browser) {}
 
   private readonly logger = new Logger(AppService.name);
 
   @Cron('45 * * * * *')
   async handleCron() {
+
+    const version = await this.browser.version();
 
    const result = await  axios.get('https://pt.aliexpress.com/category/201001900/women-clothing.html')
   .then(function (response) {
@@ -73,8 +79,6 @@ export class AppService {
   });
 
 
-    sub1= await JSON.stringify({data:result});
-    return sub1;
   }
 
 
@@ -102,8 +106,7 @@ export class AppService {
   });
 
 
-    sub1= await JSON.stringify({data:result});
-    return sub1;
+
   }
 
 

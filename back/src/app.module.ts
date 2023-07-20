@@ -9,8 +9,13 @@ import { ConfigModule } from '@nestjs/config';
 import * as dotenv from 'dotenv';
 import { Produto } from './produtos/entities/produto.entity';
 import { ScheduleModule } from '@nestjs/schedule';
+import { PuppeteerModule } from 'nest-puppeteer';
 @Module({
   imports: [
+  PuppeteerModule.forRoot(
+      { pipe: true }, // optional, any Puppeteer launch options here or leave empty for good defaults */,
+      'Chrome', // optional, can be useful for using Chrome and Firefox in the same project
+    ),
   ServeStaticModule.forRoot({
       rootPath: join(__dirname, '..', '../doc/'),
       serveRoot: '/doc/' //last slash was important
