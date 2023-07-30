@@ -13,13 +13,14 @@ RUN apk update && apk add --no-cache --virtual \
     chromium \
     ca-certificates
 
-  
+
 WORKDIR /var/www/robot1/
 RUN npm install --global pm2
 COPY package*.json ./
 RUN npm install
 COPY . .
 RUN npm run build
+RUN node node_modules/puppeteer/install.js
 EXPOSE 3000
 
 
