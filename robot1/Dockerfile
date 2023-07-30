@@ -5,7 +5,6 @@ LABEL maintainer="danielbatistagalvao@hotmail.com"
 WORKDIR /var/www/robot1/
 RUN npm install --global pm2
 COPY package*.json ./
-COPY ./doc ./
 RUN npm install
 COPY . .
 RUN npm run build
