@@ -23,6 +23,8 @@ export class AppService {
     const URL = `https://pt.aliexpress.com/category/201003912/blouses-shirts.html`;
     const browser = await puppeteer.launch({
       headless: false,
+      executablePath: '/usr/bin/chromium-browser',
+      args: ['--no-sandbox', '--disable-dev-shm-usage'],
     });
     const context = await browser.createIncognitoBrowserContext();
     const page = await browser.newPage();
