@@ -19,15 +19,15 @@ services:
           - "./database/db/:/var/lib/mysql"
     networks:
       - new
-  back:
-    container_name: back
+  robot1:
+    container_name: robot1
     depends_on:
       - database
     stdin_open: true
     links:
       - database
     build: 
-          context: ./back
+          context: ./robot1
           args:
               - MYSQL_DATABASE=${MYSQL_DATABASE}
               - MYSQL_USER=${MYSQL_USER} 
@@ -37,42 +37,60 @@ services:
             - 3000:3000
     networks:
       - new
-  crawler1:
-    container_name: crawler1
-    depends_on:
-      - database
-    stdin_open: true
-    links:
-      - database
-    build: 
-          context: ./crawler1
-          args:
-              - MYSQL_DATABASE=${MYSQL_DATABASE}
-              - MYSQL_USER=${MYSQL_USER} 
-              - MYSQL_PASSWORD=${MYSQL_PASSWORD}
-              - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
-    ports:
-            - 4000:4000
-    networks:
-      - new
-  crawler2:
-    container_name: crawler2
-    depends_on:
-      - database
-    stdin_open: true
-    links:
-      - database
-    build: 
-          context: ./crawler2
-          args:
-              - MYSQL_DATABASE=${MYSQL_DATABASE}
-              - MYSQL_USER=${MYSQL_USER} 
-              - MYSQL_PASSWORD=${MYSQL_PASSWORD}
-              - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
-    ports:
-            - 5000:5000
-    networks:
-      - new
+  # back:
+  #   container_name: back
+  #   depends_on:
+  #     - database
+  #   stdin_open: true
+  #   links:
+  #     - database
+  #   build: 
+  #         context: ./back
+  #         args:
+  #             - MYSQL_DATABASE=${MYSQL_DATABASE}
+  #             - MYSQL_USER=${MYSQL_USER} 
+  #             - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+  #             - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+  #   ports:
+  #           - 3000:3000
+  #   networks:
+  #     - new
+  # crawler1:
+  #   container_name: crawler1
+  #   depends_on:
+  #     - database
+  #   stdin_open: true
+  #   links:
+  #     - database
+  #   build: 
+  #         context: ./crawler1
+  #         args:
+  #             - MYSQL_DATABASE=${MYSQL_DATABASE}
+  #             - MYSQL_USER=${MYSQL_USER} 
+  #             - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+  #             - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+  #   ports:
+  #           - 4000:4000
+  #   networks:
+  #     - new
+  # crawler2:
+  #   container_name: crawler2
+  #   depends_on:
+  #     - database
+  #   stdin_open: true
+  #   links:
+  #     - database
+  #   build: 
+  #         context: ./crawler2
+  #         args:
+  #             - MYSQL_DATABASE=${MYSQL_DATABASE}
+  #             - MYSQL_USER=${MYSQL_USER} 
+  #             - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+  #             - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+  #   ports:
+  #           - 5000:5000
+  #   networks:
+  #     - new
   nginx:
     container_name: nginx
     build: ./nginx
