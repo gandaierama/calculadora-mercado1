@@ -96,7 +96,7 @@ services:
     build: ./nginx
     restart: always
     depends_on:
-      - back
+      - robot1
     ports:
       - 80:80
       - 443:443
