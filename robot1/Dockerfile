@@ -5,7 +5,7 @@ LABEL maintainer="danielbatistagalvao@hotmail.com"
 
 # We don't need the standalone Chromium
 ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD true
-CHROME_BIN="/usr/bin/chromium-browser"
+ENV CHROME_BIN="/usr/bin/chromium-browser"
 RUN apk update && apk add --no-cache --virtual \
     .build-deps \
     udev \
