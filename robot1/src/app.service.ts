@@ -24,7 +24,7 @@ export class AppService {
     const browser = await puppeteer.launch({
       headless: false,
       executablePath: '/usr/bin/chromium-browser',
-      args: ['--no-sandbox', '--disable-dev-shm-usage'],
+      args: ['--no-sandbox'],
     });
     const context = await browser.createIncognitoBrowserContext();
     const page = await browser.newPage();
