@@ -4,7 +4,7 @@ LABEL maintainer="danielbatistagalvao@hotmail.com"
 
 
 # We don't need the standalone Chromium
-ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD true
+ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD false
 ENV CHROMIUM_PATH /usr/bin/chromium-browser
 ENV CHROME_BIN  /usr/bin/chromium-browser
 ENV DISPLAY 10.0
