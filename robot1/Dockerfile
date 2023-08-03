@@ -8,6 +8,9 @@ RUN apk update && apk add --no-cache --virtual \
     .build-deps \
     udev \
     ttf-opensans \
+    nss \
+      freetype \
+      harfbuzz \
     chromium \
     ca-certificates
 
@@ -34,7 +37,7 @@ RUN addgroup -S pptruser && adduser -S -G pptruser pptruser \
     && mkdir -p /home/pptruser/Downloads /app \
     && chown -R pptruser:pptruser /home/pptruser \
     && chown -R pptruser:pptruser /app
-    
+
 EXPOSE 3000
 
 
