@@ -15,7 +15,7 @@ RUN apk update && apk add --no-cache --virtual \
     ca-certificates
 
 # We don't need the standalone Chromium
-ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD false
+ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD true
 ENV CHROMIUM_PATH /usr/bin/chromium-browser
 ENV CHROME_BIN  /usr/bin/chromium-browser
 ENV DISPLAY 10.0
