@@ -9,8 +9,8 @@ RUN apk update && apk add --no-cache --virtual \
     udev \
     ttf-opensans \
     nss \
-      freetype \
-      harfbuzz \
+    freetype \
+    harfbuzz \
     chromium \
     ca-certificates
 
