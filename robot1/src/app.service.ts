@@ -26,6 +26,7 @@ export class AppService {
       executablePath: '/usr/bin/chromium-browser',
       args: [
       '--no-sandbox',
+      '--enable-gpu',
       '--disable-setuid-sandbox',
       '--disable-dev-shm-usage',
       '--disable-accelerated-2d-canvas',
