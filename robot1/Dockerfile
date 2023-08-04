@@ -2,7 +2,7 @@ FROM node:20.5-alpine
 
 LABEL maintainer="danielbatistagalvao@hotmail.com"
 
-USER node
+
 
 RUN apk update && apk add --no-cache --virtual \
     .build-deps \
@@ -41,6 +41,6 @@ RUN addgroup -S pptruser && adduser -S -G pptruser pptruser \
 EXPOSE 3000
 
 
-
+USER node
 
 CMD [ "pm2-runtime", "start", "npm", "--", "start" ]
