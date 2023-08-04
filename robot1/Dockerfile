@@ -31,10 +31,6 @@ COPY . .
 RUN npm run build
 RUN node node_modules/puppeteer/install.js
 
-RUN addgroup -S pptruser && adduser -S -G pptruser pptruser \
-    && mkdir -p /home/pptruser/Downloads /app \
-    && chown -R pptruser:pptruser /home/pptruser \
-    && chown -R pptruser:pptruser /app
 
 EXPOSE 3000
 
