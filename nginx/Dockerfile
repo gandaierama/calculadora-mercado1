@@ -21,10 +21,8 @@ ENV CERTBOT_RSA_KEY_SIZE=$CERTBOT_RSA_KEY_SIZE
 # Remove any existing config files
 RUN rm /etc/nginx/conf.d/*
 
-RUN mkdir /etc/letsencrypt/live && chown -R 600 /etc/letsencrypt/live/*
+
 COPY ./default.conf /etc/nginx/conf.d/
-COPY ./fullchain.pem /etc/letsencrypt/live/importadoreslucrativos.com/
-COPY ./privkey.pem /etc/letsencrypt/live/importadoreslucrativos.com/
 
 # Expose the listening port
 EXPOSE 80
