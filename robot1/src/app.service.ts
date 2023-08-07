@@ -34,7 +34,7 @@ export class AppService {
     });
     const context = await browser.createIncognitoBrowserContext();
     const page = await browser.newPage();
-    const title = await page.title();
+
     await page.goto(URL, {
       waitUntil: 'networkidle2',
     });
