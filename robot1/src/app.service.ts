@@ -38,8 +38,9 @@ export class AppService {
     await page.goto(URL, {
       waitUntil: 'networkidle2',
     });
+    const title = await page.title();
 
-    console.log(title);
+    this.logger.log('title :', title);
     const results = await page.evaluate(() => {
       const propertyList = [];
       // document.scrollingElement.scrollTop = document.body.scrollHeight;
