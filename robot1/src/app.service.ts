@@ -42,7 +42,7 @@ export class AppService {
     const results = await page.evaluate(() => {
       const propertyList = [];
       // document.scrollingElement.scrollTop = document.body.scrollHeight;
-      console.log('body : oi');
+      
       document
         .querySelectorAll('.search-card-item')
         .forEach((z) => {
@@ -52,14 +52,14 @@ export class AppService {
             link: z.getAttribute('href'),
             name: z.querySelector('div > div > h1')?.textContent
           };
-
+          this.logger.log('data :', data);
           propertyList.push(data);
         });
 
       return propertyList;
     });
     const result2= await JSON.stringify(results);
-    this.logger.log('getDataViaPuppeteer results :', result2);
+    this.logger.log('getDataViaPuppeteer results :', results);
 
     await page.close();
     await browser.close();
