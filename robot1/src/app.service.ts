@@ -20,7 +20,7 @@ export class AppService {
 
   
     this.logger.debug('Called when the current second is 45');
-    const URL = `https://pt.aliexpress.com/category/201003912/blouses-shirts.html`;
+    const URL = `https://pt.aliexpress.com/category/201005148/dresses.html?&page=2`;
     const browser = await puppeteer.launch({
       args: [
         '--disable-gpu',
@@ -59,8 +59,9 @@ export class AppService {
 
       return propertyList;
     });
-    const result2= await JSON.stringify(results);
-    this.logger.log('getDataViaPuppeteer results :', results);
+    const result2= await JSON.parse(results);
+    const result3= await JSON.stringify(result2);
+    this.logger.log('getDataViaPuppeteer results :', result3);
 
     await page.close();
     await browser.close();
