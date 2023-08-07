@@ -58,7 +58,8 @@ export class AppService {
 
       return propertyList;
     });
-    this.logger.log('getDataViaPuppeteer results :', results);
+    const result2= await JSON.stringify(results);
+    this.logger.log('getDataViaPuppeteer results :', result2);
 
     await page.close();
     await browser.close();
