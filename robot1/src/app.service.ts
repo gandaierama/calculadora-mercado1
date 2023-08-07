@@ -22,20 +22,15 @@ export class AppService {
     this.logger.debug('Called when the current second is 45');
     const URL = `https://pt.aliexpress.com/category/201003912/blouses-shirts.html`;
     const browser = await puppeteer.launch({
-      headless: false,
-      executablePath: '/usr/bin/chromium-browser',
       args: [
-      '--no-sandbox',
-      '--enable-gpu',
-      '--disable-setuid-sandbox',
-      '--disable-dev-shm-usage',
-      '--disable-accelerated-2d-canvas',
-      '--no-first-run',
-      '--no-zygote',
+        '--disable-gpu',
+        '--disable-setuid-sandbox',
+        '--window-size=1920,1080',
+        '--start-maximized',
+        '--no-sandbox',
       ],
-      env: {
-          DISPLAY: ':0',
-        },
+      ignoreDefaultArgs: ['--disable-extensions'],
+      headless: true,
     });
     const context = await browser.createIncognitoBrowserContext();
     const page = await browser.newPage();
