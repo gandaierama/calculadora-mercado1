@@ -39,7 +39,7 @@ export class AppService {
       waitUntil: 'networkidle2',
     });
 
-    console.log(page.html());
+    console.log(page);
     const results = await page.evaluate(() => {
       const propertyList = [];
       // document.scrollingElement.scrollTop = document.body.scrollHeight;
