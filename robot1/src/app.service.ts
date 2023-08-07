@@ -42,7 +42,7 @@ export class AppService {
     const results = await page.evaluate(() => {
       const propertyList = [];
       // document.scrollingElement.scrollTop = document.body.scrollHeight;
-      this.logger.log('getDataViaPuppeteer results :', document.body);
+      console.log('body : oi');
       document
         .querySelectorAll('.search-card-item')
         .forEach((z) => {
