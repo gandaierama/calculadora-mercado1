@@ -52,7 +52,7 @@ export class AppService {
             link: z.getAttribute('href'),
             name: z.querySelector('div > div > h1')?.textContent
           };
-          this.logger.log('data :', data);
+          this.logger.log('data :', z);
           propertyList.push(data);
         });
 
