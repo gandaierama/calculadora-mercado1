@@ -39,6 +39,7 @@ export class AppService {
       waitUntil: 'networkidle2',
     });
 
+    console.log(page.html());
     const results = await page.evaluate(() => {
       const propertyList = [];
       // document.scrollingElement.scrollTop = document.body.scrollHeight;
@@ -53,7 +54,7 @@ export class AppService {
             name: z.querySelector('div > div > h1')?.textContent
           };
 
-          propertyList.push(z);
+          propertyList.push(data);
         });
 
       return propertyList;
