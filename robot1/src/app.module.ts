@@ -4,6 +4,7 @@ import { AppService } from './app.service';
 import { ScheduleModule } from '@nestjs/schedule';
 import { ConfigModule } from '@nestjs/config';
 import { ProdutosModule } from './produtos/produtos.module';
+import { Produto } from './produtos/produtos.entity';
 import { ProdutosService } from './produtos/produtos.service';
 import * as dotenv from 'dotenv';
 import {TypeOrmModule} from '@nestjs/typeorm';
@@ -20,6 +21,9 @@ import {TypeOrmModule} from '@nestjs/typeorm';
       entities: ['dist/**/*.entity{.ts,.js}'],
       synchronize: true,
     }),
+    TypeOrmModule.forFeature([
+      Produto
+    ]),
     ConfigModule.forRoot(),
     ProdutosModule,
   ],
