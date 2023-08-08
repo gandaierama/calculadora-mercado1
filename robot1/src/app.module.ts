@@ -4,6 +4,7 @@ import { AppService } from './app.service';
 import { ScheduleModule } from '@nestjs/schedule';
 import { ConfigModule } from '@nestjs/config';
 import { ProdutosModule } from './produtos/produtos.module';
+import { ProdutosService } from './produtos/produtos.service';
 import * as dotenv from 'dotenv';
 import {TypeOrmModule} from '@nestjs/typeorm';
 @Module({
@@ -23,6 +24,6 @@ import {TypeOrmModule} from '@nestjs/typeorm';
     ProdutosModule,
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService, ProdutosService],
 })
 export class AppModule {}
