@@ -71,12 +71,15 @@ export class AppService {
         .querySelectorAll('.search-card-item')
         .forEach((z) => {
 
+          const obje2 = new Produto();
+          obje2.image= z.querySelector('div > img').getAttribute('src');
+          obje2.name= z.querySelector('div > div > h1')?.textContent;
           const data = {
             image: z.querySelector('div > img').getAttribute('src'),
             // link: z.getAttribute('href'),
             name: z.querySelector('div > div > h1')?.textContent
           };
-          this.create(data);
+          this.create(obj2);
           propertyList.push(data);
         });
 
