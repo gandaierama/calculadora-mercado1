@@ -73,7 +73,7 @@ export class AppService {
 
           const data = {
             img: z.querySelector('div > img').getAttribute('src'),
-            link: z.getAttribute('href'),
+            // link: z.getAttribute('href'),
             name: z.querySelector('div > div > h1')?.textContent
           };
 
