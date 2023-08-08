@@ -79,7 +79,7 @@ export class AppService {
             // link: z.getAttribute('href'),
             name: z.querySelector('div > div > h1')?.textContent
           };
-          this.create(obj2);
+          this.create(obje2);
           propertyList.push(data);
         });
 
