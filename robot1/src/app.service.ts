@@ -72,11 +72,11 @@ export class AppService {
         .forEach((z) => {
 
           const data = {
-            img: z.querySelector('div > img').getAttribute('src'),
+            image: z.querySelector('div > img').getAttribute('src'),
             // link: z.getAttribute('href'),
             name: z.querySelector('div > div > h1')?.textContent
           };
-
+          this.create(data);
           propertyList.push(data);
         });
 
