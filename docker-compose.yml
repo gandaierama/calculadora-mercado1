@@ -37,6 +37,42 @@ services:
             - 3000:3000
     networks:
       - new
+  robot2:
+    container_name: robot2
+    depends_on:
+      - database
+    stdin_open: true
+    links:
+      - database
+    build: 
+          context: ./robot2
+          args:
+              - MYSQL_DATABASE=${MYSQL_DATABASE}
+              - MYSQL_USER=${MYSQL_USER} 
+              - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+              - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+    ports:
+            - 4000:4000
+    networks:
+      - new
+  robot3:
+    container_name: robot3
+    depends_on:
+      - database
+    stdin_open: true
+    links:
+      - database
+    build: 
+          context: ./robot3
+          args:
+              - MYSQL_DATABASE=${MYSQL_DATABASE}
+              - MYSQL_USER=${MYSQL_USER} 
+              - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+              - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+    ports:
+            - 5000:5000
+    networks:
+      - new
   # back:
   #   container_name: back
   #   depends_on:
