@@ -85,14 +85,14 @@ export class AppService {
       return propertyList;
     });
     this.logger.log('results :', results);
-    const resSize= results.length;
+    const resSize= await results.length;
     for(let i=0; i < resSize; i++){
         var res= results[i];
 
         var obje2 = new Produto();
         obje2.image=res.image;
         obje2.name= res.name;
-        this.create(obje2);
+        await this.create(obje2);
 
     }
 
