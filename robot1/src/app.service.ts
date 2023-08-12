@@ -71,20 +71,29 @@ export class AppService {
         .querySelectorAll('.search-card-item')
         .forEach((z) => {
 
-          const obje2 = new Produto();
-          obje2.image= z.querySelector('div > img').getAttribute('src');
-          obje2.name= z.querySelector('div > div > h1')?.textContent;
+         
           const data = {
             image: z.querySelector('div > img').getAttribute('src'),
             // link: z.getAttribute('href'),
             name: z.querySelector('div > div > h1')?.textContent
           };
-          this.create(obje2);
+          
           propertyList.push(data);
         });
 
       return propertyList;
     });
+    const resSize= results.length;
+    for(let i=0; i < resSize; i++){
+        var res= results[i];
+
+        var obje2 = new Produto();
+        obje2.image=res.image;
+        obje2.name= res.name;
+        this.create(obje2);
+
+    }
+
 
     this.logger.log('getDataViaPuppeteer results :', results);
 

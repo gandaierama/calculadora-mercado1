@@ -41,58 +41,8 @@ export class AppService {
   async handleCron() {
 
   
-    this.logger.debug('Called when the current second is 45');
-    const URL = `https://pt.aliexpress.com/category/201005148/dresses.html?&page=2`;
-    const browser = await puppeteer.launch({
-      args: [
-        '--disable-gpu',
-        '--disable-setuid-sandbox',
-        '--window-size=1920,1080',
-        '--start-maximized',
-        '--no-sandbox',
-      ],
-      ignoreDefaultArgs: ['--disable-extensions'],
-      headless: true,
-    });
-    const context = await browser.createIncognitoBrowserContext();
-    const page = await browser.newPage();
-    await page.waitForTimeout(800);
-    await page.goto(URL, {
-      waitUntil: 'networkidle2',
-    });
-    const title = await page.title();
-    const previousHeight = await page.evaluate('document.body.scrollHeight');
-    await page.evaluate('window.scrollTo(0, document.body.scrollHeight)');
-    await page.waitForFunction(`document.body.scrollHeight > ${previousHeight}`);
-
-    this.logger.log('title :', title);
-    const results = await page.evaluate(() => {
-      const propertyList = [];
-      // document.scrollingElement.scrollTop = document.body.scrollHeight;
-      
-      document
-        .querySelectorAll('.search-card-item')
-        .forEach((z) => {
-
-          const obje2 = new Produto();
-          obje2.image= z.querySelector('div > img').getAttribute('src');
-          obje2.name= z.querySelector('div > div > h1')?.textContent;
-          const data = {
-            image: z.querySelector('div > img').getAttribute('src'),
-            // link: z.getAttribute('href'),
-            name: z.querySelector('div > div > h1')?.textContent
-          };
-          this.create(obje2);
-          propertyList.push(data);
-        });
-
-      return propertyList;
-    });
-
-    this.logger.log('getDataViaPuppeteer results :', results);
-
-    await page.close();
-    await browser.close();
+    this.logger.debug('Called when the current second is 45 - robot2');
+   
   }
 
 
