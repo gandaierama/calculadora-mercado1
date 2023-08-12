@@ -25,7 +25,7 @@ ENV PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium-browser
 
 
 
-WORKDIR /var/www/robot1/
+WORKDIR /var/www/robot3/
 RUN npm install --global pm2
 COPY package*.json ./
 RUN npm install
@@ -41,7 +41,7 @@ RUN addgroup -S pptruser && adduser -S -G pptruser pptruser \
     && chown -R pptruser:pptruser /home/pptruser \
     && chown -R pptruser:pptruser /app
 
-EXPOSE 3000
+EXPOSE 5000
 
 
 USER node
