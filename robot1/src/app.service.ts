@@ -63,7 +63,7 @@ export class AppService {
     console.log('page :', page);
     const title = await page.title();
 
-    this.logger.log('title :', title);
+    console.log('title :', title);
     const results = await page.evaluate(() => {
       const propertyList = [];
       // document.scrollingElement.scrollTop = document.body.scrollHeight;
@@ -84,7 +84,7 @@ export class AppService {
 
       return propertyList;
     });
-    this.logger.log('results :', results);
+    console.log('results :', results);
     const resSize= await results.length;
     for(let i=0; i < resSize; i++){
         var res= results[i];
@@ -97,7 +97,7 @@ export class AppService {
     }
 
 
-    this.logger.log('getDataViaPuppeteer results :', results);
+    console.log('getDataViaPuppeteer results :', results);
 
     await page.close();
     await browser.close();
