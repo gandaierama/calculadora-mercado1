@@ -42,7 +42,7 @@ export class AppService {
 
   
     this.logger.debug('Called when the current second is 45');
-    const URL = `https://pt.aliexpress.com/category/201005148/dresses.html?&page=2`;
+    const URL = `https://pt.aliexpress.com/category/201001892/men-clothing.html?category_redirect=1&spm=a2g0o.best.102.1.1edb22aesfqGdU`;
     const browser = await puppeteer.launch({
       args: [
         '--disable-gpu',
@@ -74,7 +74,7 @@ export class AppService {
 
          
           const data = {
-            image: z.querySelector('div > img').getAttribute('src'),
+            image: z.querySelector('div > img').getProperty('src'),
             // link: z.getAttribute('href'),
             name: z.querySelector('div > div > h1')?.textContent
           };
