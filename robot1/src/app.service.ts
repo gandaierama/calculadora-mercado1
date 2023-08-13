@@ -60,7 +60,7 @@ export class AppService {
     await page.goto(URL, {
       waitUntil: 'networkidle2',
     });
-    this.logger.log('page :', page);
+    console.log('page :', page);
     const title = await page.title();
 
     this.logger.log('title :', title);
@@ -101,7 +101,8 @@ export class AppService {
 
     await page.close();
     await browser.close();
-    const list=this.produtoRepository.find();
+    const list=await this.produtoRepository.find();
+    console.log(list);
     this.logger.log('base :', list);
   }
 
