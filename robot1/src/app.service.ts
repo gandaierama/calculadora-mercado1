@@ -61,7 +61,7 @@ export class AppService {
       waitUntil: 'networkidle2',
     });
 
-    await page.waitForNavigation();
+    //await page.waitForNavigation();
     await page.waitForTimeout(5000);
     console.log('page :', page);
     const title = await page.title();
