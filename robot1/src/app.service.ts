@@ -5,7 +5,7 @@ import axios from 'axios';
 import { Cron } from '@nestjs/schedule';
 import * as cheerio from 'cheerio';
 import * as puppeteer from 'puppeteer';
-
+import StealthPlugin from 'puppeteer-extra-plugin-stealth';
 
 import {InjectRepository} from '@nestjs/typeorm';
 import {CreateProdutoDto} from './produtos/dto/create-produto.dto';
@@ -40,7 +40,7 @@ export class AppService {
   @Cron('45 * * * * *')
   async handleCron() {
 
-  
+    puppeteer.use(StealthPlugin());
     this.logger.debug('Called when the current second is 45');
     const URL = `https://pt.aliexpress.com/category/201001892/men-clothing.html?category_redirect=1&spm=a2g0o.best.102.1.1edb22aesfqGdU`;
     const browser = await puppeteer.launch({
@@ -60,6 +60,9 @@ export class AppService {
     await page.goto(URL, {
       waitUntil: 'networkidle2',
     });
+
+    await page.waitForNavigation();
+    await page.waitForTimeout(5000);
     console.log('page :', page);
     const title = await page.title();
 
