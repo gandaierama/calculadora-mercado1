@@ -4,7 +4,7 @@ import { Repository } from 'typeorm';
 import axios from 'axios';
 import { Cron } from '@nestjs/schedule';
 import * as cheerio from 'cheerio';
-import * as puppeteer from 'puppeteer-extra';
+import puppeteer from 'puppeteer-extra';
 import StealthPlugin from 'puppeteer-extra-plugin-stealth';
 
 import {InjectRepository} from '@nestjs/typeorm';
