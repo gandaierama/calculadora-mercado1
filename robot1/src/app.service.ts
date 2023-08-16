@@ -42,68 +42,68 @@ export class AppService {
 
     puppeteer.use(StealthPlugin());
     this.logger.debug('Called when the current second is 45');
-    const URL = `https://pt.aliexpress.com/category/201001892/men-clothing.html?category_redirect=1&spm=a2g0o.best.102.1.94d222ae212rWi`;
-    const browser = await puppeteer.launch({
-      args: [
-        '--disable-gpu',
-        '--disable-setuid-sandbox',
-        '--window-size=1920,1080',
-        '--start-maximized',
-        '--no-sandbox',
-      ],
-      ignoreDefaultArgs: ['--disable-extensions'],
-      headless: true,
-    });
-    const context = await browser.createIncognitoBrowserContext();
-    const page = await browser.newPage();
+    // const URL = `https://pt.aliexpress.com/category/201001892/men-clothing.html?category_redirect=1&spm=a2g0o.best.102.1.94d222ae212rWi`;
+    // const browser = await puppeteer.launch({
+    //   args: [
+    //     '--disable-gpu',
+    //     '--disable-setuid-sandbox',
+    //     '--window-size=1920,1080',
+    //     '--start-maximized',
+    //     '--no-sandbox',
+    //   ],
+    //   ignoreDefaultArgs: ['--disable-extensions'],
+    //   headless: true,
+    // });
+    // const context = await browser.createIncognitoBrowserContext();
+    // const page = await browser.newPage();
 
-    await page.goto(URL, {
-      waitUntil: 'networkidle2',
-    });
+    // await page.goto(URL, {
+    //   waitUntil: 'networkidle2',
+    // });
 
-    //await page.waitForNavigation();
-    //await page.waitForTimeout(5000);
-    console.log('page :', page);
-    const title = await page.title();
+    // //await page.waitForNavigation();
+    // //await page.waitForTimeout(5000);
+    // console.log('page :', page);
+    // const title = await page.title();
 
-    console.log('title :', title);
-    const results = await page.evaluate(() => {
-      const propertyList = [];
-      // document.scrollingElement.scrollTop = document.body.scrollHeight;
+    // console.log('title :', title);
+    // const results = await page.evaluate(() => {
+    //   const propertyList = [];
+    //   // document.scrollingElement.scrollTop = document.body.scrollHeight;
       
-      document
-        .querySelectorAll('.search-card-item')
-        .forEach((z) => {
+    //   document
+    //     .querySelectorAll('.search-card-item')
+    //     .forEach((z) => {
 
          
-          const data = {
-            image: z.querySelector('div > img')?.getAttribute('src'),
-            link: z.getAttribute('href'),
-            name: z.querySelector('div > div > h1')?.textContent
-          };
+    //       const data = {
+    //         image: z.querySelector('div > img')?.getAttribute('src'),
+    //         link: z.getAttribute('href'),
+    //         name: z.querySelector('div > div > h1')?.textContent
+    //       };
           
-          propertyList.push(data);
-        });
+    //       propertyList.push(data);
+    //     });
 
-      return propertyList;
-    });
-    console.log('results :', results);
-    const resSize= await results.length;
-    for(let i=0; i < resSize; i++){
-        var res= results[i];
+    //   return propertyList;
+    // });
+    // console.log('results :', results);
+    // const resSize= await results.length;
+    // for(let i=0; i < resSize; i++){
+    //     var res= results[i];
 
-        var obje2 = new Produto();
-        obje2.image=res.image;
-        obje2.name= res.name;
-        await this.create(obje2);
+    //     var obje2 = new Produto();
+    //     obje2.image=res.image;
+    //     obje2.name= res.name;
+    //     await this.create(obje2);
 
-    }
+    // }
 
 
-    console.log('getDataViaPuppeteer results :', results);
+    // console.log('getDataViaPuppeteer results :', results);
 
-    await page.close();
-    await browser.close();
+    // await page.close();
+    // await browser.close();
     const list=await this.produtoRepository.find();
     console.log(list);
     this.logger.log('base :', list);
