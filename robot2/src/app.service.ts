@@ -49,6 +49,16 @@ export class AppService {
    
     const list =await this.produtoRepository.find();
 
+
+    const requestOptions = {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ title: 'Fetch PUT Request Example' })
+    };
+    const response = await fetch('https://reqres.in/api/articles/1', requestOptions);
+    const data = await response.json();
+
+
     console.log("lista", list);
   }
 
