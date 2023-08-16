@@ -42,6 +42,10 @@ export class AppService {
 
   
     this.logger.debug('Called when the current second is 45 - robot2');
+
+    await fetch('https://jsonplaceholder.typicode.com/todos/1')
+      .then(response => response.json())
+      .then(json => console.log(json));
    
   }
 
