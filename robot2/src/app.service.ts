@@ -47,6 +47,9 @@ export class AppService {
       .then(response => response.json())
       .then(json => console.log(json));
    
+    const list =await this.produtoRepository.find();
+
+    console.log("lista", list);
   }
 
 
