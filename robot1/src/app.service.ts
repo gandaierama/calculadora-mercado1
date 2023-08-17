@@ -52,7 +52,7 @@ export class AppService {
         '--no-sandbox',
       ],
       ignoreDefaultArgs: ['--disable-extensions'],
-      headless: false,
+      headless: true,
     });
     const context = await browser.createIncognitoBrowserContext();
     console.log((await browser.pages()).length);
@@ -70,14 +70,19 @@ export class AppService {
 
     // await page.setDefaultNavigationTimeout(4000);
     await page.goto(URL, {
-      waitUntil: 'networkidle2',
+      waitUntil: 'domcontentloaded',
     });
 
     //await page.waitForNavigation();
     await page.waitForTimeout((Math.floor(Math.random() * 12) + 5) * 1000) 
     
-    const title = await page.title();
 
+
+
+    const navigationPromise = page.waitForNavigation();
+    await page.click("body"); // trigger a navigation
+    await navigationPromise;
+    const title = await page.title();
     const results = await page.evaluate(() => {
       const propertyList = [];
       // document.scrollingElement.scrollTop = document.body.scrollHeight;
