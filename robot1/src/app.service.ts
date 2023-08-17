@@ -67,7 +67,7 @@ export class AppService {
       'accept-encoding': 'gzip, deflate, br', 
       'accept-language': 'en-US,en;q=0.9,en;q=0.8' 
     }); 
-    
+
     // await page.setDefaultNavigationTimeout(4000);
     await page.goto(URL, {
       waitUntil: 'networkidle2',
@@ -75,7 +75,7 @@ export class AppService {
 
     //await page.waitForNavigation();
     await page.waitForTimeout((Math.floor(Math.random() * 12) + 5) * 1000) 
-    //console.log('page :', page);
+    console.log('page :', page);
     const title = await page.title();
 
     console.log('title :', title);
