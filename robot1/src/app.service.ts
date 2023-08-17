@@ -114,13 +114,13 @@ export class AppService {
     console.log('results :', results);
     console.log('size :', resSize);
 
-    console.log('getDataViaPuppeteer results :', results);
+    // console.log('getDataViaPuppeteer results :', results);
 
     await page.close();
     await browser.close();
-    const list=await this.produtoRepository.find();
-    console.log(list);
-    this.logger.log('base :', list);
+    // const list=await this.produtoRepository.find();
+    // console.log(list);
+    // this.logger.log('base :', list);
   }
 
 
