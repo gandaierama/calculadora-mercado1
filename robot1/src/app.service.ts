@@ -79,9 +79,6 @@ export class AppService {
 
 
 
-    const navigationPromise = page.waitForNavigation();
-    await page.click("body"); // trigger a navigation
-    await navigationPromise;
     const title = await page.title();
     const results = await page.evaluate(() => {
       const propertyList = [];
