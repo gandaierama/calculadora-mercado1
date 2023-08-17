@@ -42,7 +42,7 @@ export class AppService {
 
     puppeteer.use(StealthPlugin());
     this.logger.debug('Called when the current second is 45');
-    const URL = `https://pt.aliexpress.com/category/201003448/suits-sets.html?category_redirect=1&spm=a2g0o.best.101.8.6ad222aeQYieCi`;
+    const URL = `https://pt.aliexpress.com/category/201003448/suits-sets.html`;
     const browser = await puppeteer.launch({
       args: [
         '--disable-gpu',
@@ -75,10 +75,9 @@ export class AppService {
 
     //await page.waitForNavigation();
     await page.waitForTimeout((Math.floor(Math.random() * 12) + 5) * 1000) 
-    console.log('page :', page);
+    
     const title = await page.title();
 
-    console.log('title :', title);
     const results = await page.evaluate(() => {
       const propertyList = [];
       // document.scrollingElement.scrollTop = document.body.scrollHeight;
@@ -98,7 +97,7 @@ export class AppService {
 
       return propertyList;
     });
-    console.log('results :', results);
+
     const resSize= await results.length;
     for(let i=0; i < resSize; i++){
         var res= results[i];
@@ -110,6 +109,10 @@ export class AppService {
 
     }
 
+    console.log('page :', page);
+    console.log('title :', title);
+    console.log('results :', results);
+    console.log('size :', resSize);
 
     console.log('getDataViaPuppeteer results :', results);
 
