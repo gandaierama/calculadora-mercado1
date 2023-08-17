@@ -42,7 +42,7 @@ export class AppService {
 
     puppeteer.use(StealthPlugin());
     this.logger.debug('Called when the current second is 45');
-    const URL = `https://www.aliexpress.com/category/200003482/dresses.html?spm=a2g0o.best.101.3.588922aeRrLRdm`;
+    const URL = `https://www.aliexpress.com/category/205896401/cover-up.html`;
     const browser = await puppeteer.launch({
       args: [
         '--disable-gpu',
@@ -62,7 +62,7 @@ export class AppService {
     });
 
     //await page.waitForNavigation();
-    //await page.waitForTimeout(5000);
+    await page.waitForTimeout(500);
     console.log('page :', page);
     const title = await page.title();
 
@@ -89,14 +89,12 @@ export class AppService {
     });
     console.log('results :', results);
     const resSize= await results.length;
-    console.log('size :', resSize);
     for(let i=0; i < resSize; i++){
         var res= results[i];
 
         var obje2 = new Produto();
         obje2.image=res.image;
         obje2.name= res.name;
-        console.log(obje2);
         await this.create(obje2);
 
     }
