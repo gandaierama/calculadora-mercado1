@@ -56,15 +56,25 @@ export class AppService {
     });
     const context = await browser.createIncognitoBrowserContext();
     console.log((await browser.pages()).length);
-    
+
     const page = (await browser.pages())[0];
+
+    // Add Headers 
+    await page.setExtraHTTPHeaders({ 
+      'user-agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36', 
+      'upgrade-insecure-requests': '1', 
+      'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8', 
+      'accept-encoding': 'gzip, deflate, br', 
+      'accept-language': 'en-US,en;q=0.9,en;q=0.8' 
+    }); 
+    
     // await page.setDefaultNavigationTimeout(4000);
     await page.goto(URL, {
       waitUntil: 'networkidle2',
     });
 
     //await page.waitForNavigation();
-    await page.waitForTimeout(1000);
+    await page.waitForTimeout((Math.floor(Math.random() * 12) + 5) * 1000) 
     //console.log('page :', page);
     const title = await page.title();
 
