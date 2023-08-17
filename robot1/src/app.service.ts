@@ -63,7 +63,7 @@ export class AppService {
 
     await page.waitForNavigation();
     await page.waitForTimeout(500);
-    console.log('page :', page);
+    //console.log('page :', page);
     const title = await page.title();
 
     console.log('title :', title);
@@ -75,7 +75,6 @@ export class AppService {
         .querySelectorAll('.search-card-item')
         .forEach((z) => {
 
-         
           const data = {
             image: z.querySelector('div > img')?.getAttribute('src'),
             link: z.getAttribute('href'),
