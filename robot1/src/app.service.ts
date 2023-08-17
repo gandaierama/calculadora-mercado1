@@ -55,14 +55,16 @@ export class AppService {
       headless: true,
     });
     const context = await browser.createIncognitoBrowserContext();
-    const page = await browser.newPage();
+    console.log((await browser.pages()).length);
+    
+    const page = (await browser.pages())[0];
     // await page.setDefaultNavigationTimeout(4000);
     await page.goto(URL, {
       waitUntil: 'networkidle2',
     });
 
     //await page.waitForNavigation();
-    await page.waitForTimeout(500);
+    await page.waitForTimeout(1000);
     //console.log('page :', page);
     const title = await page.title();
 
