@@ -56,7 +56,7 @@ export class AppService {
     });
     const context = await browser.createIncognitoBrowserContext();
     const page = await browser.newPage();
-    await page.setDefaultNavigationTimeout(0);
+    await page.setDefaultNavigationTimeout(30000);
     await page.goto(URL, {
       waitUntil: 'networkidle2',
     });
