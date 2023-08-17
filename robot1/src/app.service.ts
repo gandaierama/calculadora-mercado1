@@ -52,7 +52,7 @@ export class AppService {
         '--no-sandbox',
       ],
       ignoreDefaultArgs: ['--disable-extensions'],
-      headless: true,
+      headless: false,
     });
     const context = await browser.createIncognitoBrowserContext();
     console.log((await browser.pages()).length);
