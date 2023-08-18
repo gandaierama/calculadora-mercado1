@@ -81,7 +81,7 @@ export class AppService {
     });
 
     //await page.waitForNavigation();
-    await page.waitForTimeout((Math.floor(Math.random() * 12) + 5) * 1000) 
+    await page.waitForTimeout((Math.floor(Math.random() * 12) + 5) * 100) 
     
 
 
