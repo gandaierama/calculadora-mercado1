@@ -22,7 +22,7 @@ export class AppService {
 
   private readonly logger = new Logger(AppService.name);
 
-  private intera=0;
+  private intera=3;
 
   create(createProdutoDto: CreateProdutoDto): Promise<Produto> {
     console.log('Back Create1', createProdutoDto);
