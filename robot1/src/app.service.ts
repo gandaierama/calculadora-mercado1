@@ -124,7 +124,7 @@ export class AppService {
     
 
     console.log('page :', page);
-    console.log('title :', title);
+
     console.log('results :', results);
     console.log('size :', resSize);
 
