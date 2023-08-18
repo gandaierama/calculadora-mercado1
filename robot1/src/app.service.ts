@@ -106,17 +106,22 @@ export class AppService {
       return propertyList;
     });
 
-    const resSize= await results.length;
-    for(let i=0; i < resSize; i++){
-        var res= results[i];
+        const resSize= await results.length;
+        
+    if(resSize > 0){
+      for(let i=0; i < resSize; i++){
+          var res= results[i];
 
-        var obje2 = new Produto();
-        obje2.image=res.image;
-        obje2.name= res.name;
-        obje2.link= res.link;
-        await this.create(obje2);
+          var obje2 = new Produto();
+          obje2.image=res.image;
+          obje2.name= res.name;
+          obje2.link= res.link;
+          await this.create(obje2);
 
+      }
     }
+
+    
 
     console.log('page :', page);
     console.log('title :', title);
