@@ -94,10 +94,16 @@ export class AppService {
         .querySelectorAll('.search-card-item')
         .forEach((z) => {
 
-          const data = {
-            image: z.querySelector('div > img')?.getAttribute('src'),
-            link: z.getAttribute('href'),
-            name: z.querySelector('div > div > h1')?.textContent
+          var image =z.querySelector('div > img')?.getAttribute('src');
+          var link = z.getAttribute('href');
+          var name = z.querySelector('div > div > h1')?.textContent;
+          var piece= link.split(".html");
+          var piece2= piece[0].split("item/");
+          var data = {
+            idAli: piece2[1],
+            image: image,
+            link: link,
+            name: name
           };
           
           propertyList.push(data);
