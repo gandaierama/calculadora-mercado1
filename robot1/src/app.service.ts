@@ -65,7 +65,7 @@ export class AppService {
     });
     const context = await browser.createIncognitoBrowserContext();
     const page = await browser.newPage();
-
+    await page.setViewport({width: 1920, height: 1080});
     // Add Headers 
     await page.setExtraHTTPHeaders({ 
       'user-agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36', 
@@ -136,7 +136,7 @@ export class AppService {
     console.log('size :', resSize);
 
     // console.log('getDataViaPuppeteer results :', results);
-    await page.screenshot({path: '../'+this.intera+'check.png'});
+    await page.screenshot({path: this.intera+'check.png'});
     await page.close();
     await browser.close();
     // const list=await this.produtoRepository.find();
