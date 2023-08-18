@@ -49,9 +49,16 @@ export class AppService {
         '--disable-setuid-sandbox',
         '--window-size=1920,1080',
         '--start-maximized',
+        '--disable-dev-shm-usage',
+        '--disk-cache-dir=/tmp/browser-cache-disk',
         '--no-sandbox',
       ],
-      ignoreDefaultArgs: ['--disable-extensions'],
+      ignoreHTTPSErrors: true,
+      defaultViewport: {
+        width: 1920,
+        height: 1080,
+      },
+      ignoreDefaultArgs: ['--disable-extensions', '--enable-automation'],
       headless: true,
     });
     const context = await browser.createIncognitoBrowserContext();
