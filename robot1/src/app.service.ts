@@ -22,7 +22,7 @@ export class AppService {
 
   private readonly logger = new Logger(AppService.name);
 
-  let intera=0;
+  private intera=0;
 
   create(createProdutoDto: CreateProdutoDto): Promise<Produto> {
     console.log('Back Create1', createProdutoDto);
@@ -40,7 +40,7 @@ export class AppService {
 
   @Cron('45 * * * * *')
   async handleCron() {
-    intera=intera+1;
+    this.intera=this.intera+1;
     puppeteer.use(StealthPlugin());
     this.logger.debug('Called when the current second is 45');
     const URL = `https://pt.aliexpress.com/category/201003448/suits-sets.html?category_redirect=1&page=`+intera;
