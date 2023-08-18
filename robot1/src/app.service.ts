@@ -62,9 +62,7 @@ export class AppService {
       headless: true,
     });
     const context = await browser.createIncognitoBrowserContext();
-    console.log((await browser.pages()).length);
-
-    const page = (await browser.pages())[0];
+    const page = await browser.newPage();
 
     // Add Headers 
     await page.setExtraHTTPHeaders({ 
@@ -81,7 +79,7 @@ export class AppService {
     });
 
     //await page.waitForNavigation();
-    await page.waitForTimeout((Math.floor(Math.random() * 12) + 5) * 100) 
+    //await page.waitForTimeout((Math.floor(Math.random() * 12) + 5) * 100) 
     
 
 
