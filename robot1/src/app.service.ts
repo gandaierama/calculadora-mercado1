@@ -85,7 +85,7 @@ export class AppService {
 
 
 
-    const title = await page.title();
+    console.log('title :', await page.title());
     const results = await page.evaluate(() => {
       const propertyList = [];
       // document.scrollingElement.scrollTop = document.body.scrollHeight;
@@ -107,7 +107,7 @@ export class AppService {
     });
 
         const resSize= await results.length;
-        
+
     if(resSize > 0){
       for(let i=0; i < resSize; i++){
           var res= results[i];
