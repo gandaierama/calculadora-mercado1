@@ -43,20 +43,20 @@ export class AppService {
   
     this.logger.debug('Called when the current second is 45 - robot2');
 
-    await fetch('https://jsonplaceholder.typicode.com/todos/1')
-      .then(response => response.json())
-      .then(json => console.log(json));
+    // await fetch('https://jsonplaceholder.typicode.com/todos/1')
+    //   .then(response => response.json())
+    //   .then(json => console.log(json));
    
     const list =await this.produtoRepository.find();
 
 
-    const requestOptions = {
-        method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ title: 'Fetch PUT Request Example' })
-    };
-    const response = await fetch('https://reqres.in/api/articles/1', requestOptions);
-    const data = await response.json();
+    // const requestOptions = {
+    //     method: 'PUT',
+    //     headers: { 'Content-Type': 'application/json' },
+    //     body: JSON.stringify({ title: 'Fetch PUT Request Example' })
+    // };
+    // const response = await fetch('https://reqres.in/api/articles/1', requestOptions);
+    // const data = await response.json();
 
 
     console.log("lista", list);
