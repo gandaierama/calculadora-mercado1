@@ -11,19 +11,19 @@ export class Produto {
 	@PrimaryGeneratedColumn('uuid')
 	id: string;
 
-	@Column({length: 65, default: 'Teste', nullable: false})
+	@Column({default: 'Teste', nullable: false})
 	name: string;
 
-	@Column({length: 65, default: 'image.png', nullable: false})
+	@Column({ default: 'image.png', nullable: true})
 	image: string;
 
-	@Column({length: 65, default: '123', nullable: false})
+	@Column({ default: '123', nullable: true})
 	idAli: string;
 
-	@Column({length: 65, default: 'http://', nullable: false})
+	@Column({ nullable: true})
 	link: string;
 
-	@Column({length: 65, default: '1', nullable: false})
+	@Column({ default: '1', nullable: true})
 	category: string;
 
 	@Column({default: true})
