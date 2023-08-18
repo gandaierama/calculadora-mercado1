@@ -79,7 +79,7 @@ export class AppService {
     });
 
     //await page.waitForNavigation();
-    //await page.waitForTimeout((Math.floor(Math.random() * 12) + 5) * 100) 
+    //..++++++await page.waitForTimeout((Math.floor(Math.random() * 12) + 5) * 100) 
     
 
 
@@ -112,6 +112,7 @@ export class AppService {
         var obje2 = new Produto();
         obje2.image=res.image;
         obje2.name= res.name;
+        obje2.link= res.link;
         await this.create(obje2);
 
     }
