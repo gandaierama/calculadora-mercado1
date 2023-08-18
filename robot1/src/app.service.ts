@@ -77,7 +77,7 @@ export class AppService {
 
     // await page.setDefaultNavigationTimeout(4000);
     await page.goto(URL, {
-      waitUntil: 'domcontentloaded',
+      waitUntil: 'networkidle2',
     });
 
     //await page.waitForNavigation();
