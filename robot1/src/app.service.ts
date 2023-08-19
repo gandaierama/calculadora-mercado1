@@ -39,7 +39,7 @@ export class AppService {
     return this.produtoRepository.save(obje);
   }
 
-  @Cron('10 * * * *')
+  @Cron('0 3 * * * *')
   async handleCron() {
     this.intera=this.intera+1;
     puppeteer.use(StealthPlugin());
