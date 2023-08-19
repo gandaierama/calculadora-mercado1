@@ -32,7 +32,7 @@ export class AppService {
 
 
    
-    const list =await this.produtoRepository.query(`SELECT * FROM Produto WHERE name NOT LIKE 'Teste%' `);
+    const list =await this.produtoRepository.find();
 
 
 
