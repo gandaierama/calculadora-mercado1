@@ -35,7 +35,7 @@ export class AppService {
     const list =await this.produtoRepository.find();
 
 
-
+    await this.produtoRepository.delete({ name: "Teste" });
 
 
     console.log("lista", list);
