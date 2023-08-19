@@ -23,21 +23,14 @@ export class AppService {
   private readonly logger = new Logger(AppService.name);
 
 
-  @Cron('0 */3 * * * *')
+  @Cron('0 */2 * * * *')
   async handleCron() {
 
   
-    this.logger.debug('Called when the current second is 45 - robot2');
+    this.logger.debug('Called every 2 minutes - robot2');
 
 
-   
-    const list =await this.produtoRepository.find();
 
-
-    await this.produtoRepository.delete({ name: "Teste" });
-
-
-    console.log("lista", list);
   }
 
 

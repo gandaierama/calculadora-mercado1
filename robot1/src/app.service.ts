@@ -39,12 +39,12 @@ export class AppService {
     return this.produtoRepository.save(obje);
   }
 
-  @Cron('0 */3 * * * *')
+  @Cron('0 */2 * * * *')
   async handleCron() {
     this.intera=this.intera+1;
     puppeteer.use(StealthPlugin());
-    this.logger.debug('Called when the current second is 45');
-    const URL = `https://pt.aliexpress.com/category/201001892/men-clothing.html?category_redirect=1&page=`+this.intera;
+    this.logger.debug('Called every 2 minutes - robot1');
+    const URL = `https://pt.aliexpress.com/category/201001904/hoodies-sweatshirts.html?category_redirect=1&page=`+this.intera;
     const browser = await puppeteer.launch({
       args: [
         '--disable-gpu',
