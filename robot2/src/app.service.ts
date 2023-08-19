@@ -23,8 +23,7 @@ export class AppService {
   private readonly logger = new Logger(AppService.name);
 
 
-
-  @Cron('* */2 * * * *')
+  @Cron('* */3 * * * *')
   async handleCron() {
 
   
