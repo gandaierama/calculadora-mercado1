@@ -19,7 +19,7 @@ import {TypeOrmModule} from '@nestjs/typeorm';
       password: 'test',
       database: 'db_main',
       entities: ['dist/**/*.entity{.ts,.js}'],
-      synchronize: true,
+      synchronize: false,
     }),
     TypeOrmModule.forFeature([
       Produto
