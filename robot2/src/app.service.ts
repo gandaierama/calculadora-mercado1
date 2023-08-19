@@ -23,19 +23,6 @@ export class AppService {
   private readonly logger = new Logger(AppService.name);
 
 
-  create(createProdutoDto: CreateProdutoDto): Promise<Produto> {
-    console.log('Back Create1', createProdutoDto);
-    const obje = new Produto();
-    obje.name = createProdutoDto.name;
-    obje.idAli = createProdutoDto.idAli;
-    obje.link = createProdutoDto.link;
-    obje.image = createProdutoDto.image;
-    obje.category = createProdutoDto.category;
-
-  
-    console.log('Back Create2', obje);
-    return this.produtoRepository.save(obje);
-  }
 
   @Cron('45 * * * * *')
   async handleCron() {
@@ -43,20 +30,12 @@ export class AppService {
   
     this.logger.debug('Called when the current second is 45 - robot2');
 
-    // await fetch('https://jsonplaceholder.typicode.com/todos/1')
-    //   .then(response => response.json())
-    //   .then(json => console.log(json));
+
    
-    const list =await this.produtoRepository.find();
+    const list =await this.produtoRepository.query(`SELECT * FROM produtos WHERE name NOT LIKE 'Teste%' `);
 
 
-    // const requestOptions = {
-    //     method: 'PUT',
-    //     headers: { 'Content-Type': 'application/json' },
-    //     body: JSON.stringify({ title: 'Fetch PUT Request Example' })
-    // };
-    // const response = await fetch('https://reqres.in/api/articles/1', requestOptions);
-    // const data = await response.json();
+
 
 
     console.log("lista", list);

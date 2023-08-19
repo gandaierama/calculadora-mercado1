@@ -123,6 +123,7 @@ export class AppService {
           obje2.image=res.image;
           obje2.name= res.name;
           obje2.link= res.link;
+          obje2.idAli= res.idAli;
           await this.create(obje2);
 
       }
