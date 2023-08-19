@@ -90,7 +90,7 @@ export class AppService {
     const results = await page.evaluate(() => {
       const propertyList = [];
       // document.scrollingElement.scrollTop = document.body.scrollHeight;
-      
+      window.scrollTo(0, 800);
       document
         .querySelectorAll('.search-card-item')
         .forEach((z) => {
