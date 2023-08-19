@@ -44,7 +44,7 @@ export class AppService {
     this.intera=this.intera+1;
     puppeteer.use(StealthPlugin());
     this.logger.debug('Called when the current second is 45');
-    const URL = `https://pt.aliexpress.com/category/201003448/suits-sets.html?category_redirect=1&page=`+this.intera;
+    const URL = `https://pt.aliexpress.com/category/201001892/men-clothing.html?category_redirect=1&page=`+this.intera;
     const browser = await puppeteer.launch({
       args: [
         '--disable-gpu',
