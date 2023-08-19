@@ -24,7 +24,7 @@ export class AppService {
 
 
 
-  @Cron('*/2 * * * * *')
+  @Cron('* */2 * * * *')
   async handleCron() {
 
   
