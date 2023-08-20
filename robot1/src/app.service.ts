@@ -148,7 +148,7 @@ export class AppService {
     console.log('size :', resSize);
 
     // console.log('getDataViaPuppeteer results :', results);
-    await page.screenshot({path: this.intera+'check.png'});
+    //await page.screenshot({path: this.intera+'check.png'});
     await page.close();
     await browser.close();
     // const list=await this.produtoRepository.find();
