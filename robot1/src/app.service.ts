@@ -45,6 +45,8 @@ export class AppService {
     puppeteer.use(StealthPlugin());
     this.logger.debug('Called every 2 minutes - robot1');
     const URL = `https://pt.aliexpress.com/category/201001904/hoodies-sweatshirts.html?category_redirect=1&page=`+this.intera;
+    const category0 = URL.split("/");
+    const category = category0[4];
     const browser = await puppeteer.launch({
       args: [
         '--disable-gpu',
@@ -131,6 +133,8 @@ export class AppService {
           obje2.name= res.name;
           obje2.link= res.link;
           obje2.idAli= res.idAli;
+          obje2.category= category;
+          obje2.isActive= false;
           await this.create(obje2);
 
       }

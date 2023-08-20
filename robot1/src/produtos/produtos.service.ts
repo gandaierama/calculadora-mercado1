@@ -48,6 +48,10 @@ export class ProdutosService {
     return this.produtoRepository.find();
   }
 
+  countAll() {
+    return this.produtoRepository.count();
+  }
+
   findOne(id): Promise<Produto> {
     return this.produtoRepository.findOne(id);
   }
