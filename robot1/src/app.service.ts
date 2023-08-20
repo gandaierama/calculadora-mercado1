@@ -81,17 +81,19 @@ export class AppService {
     });
 
     //await page.waitForNavigation();
-    await page.waitForTimeout((Math.floor(Math.random() * 12) + 5) * 100) 
+    await page.waitForTimeout((Math.floor(Math.random() * 15) + 5) * 10) 
     
     await page.evaluate(() => {
         window.scrollTo(0, 1080);
     });
-
+     //await page.waitForNavigation();
+    await page.waitForTimeout((Math.floor(Math.random() * 20) + 3) * 10) 
+    
     console.log('title :', await page.title());
     const results = await page.evaluate(() => {
       const propertyList = [];
       // document.scrollingElement.scrollTop = document.body.scrollHeight;
-      window.scrollTo(0, 800);
+      
       document
         .querySelectorAll('.search-card-item')
         .forEach((z) => {
