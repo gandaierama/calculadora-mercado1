@@ -26,7 +26,13 @@ export class AppService {
   @Cron('0 */2 * * * *')
   async handleCron() {
 
-  
+    
+    const alvo= await this.produtoRepository.findOne({
+    where: {
+        isActive: false,
+    }});
+
+    console.log(alvo);
     this.logger.debug('Called every 2 minutes - robot2');
 
 
