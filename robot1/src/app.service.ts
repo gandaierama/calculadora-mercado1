@@ -23,7 +23,7 @@ export class AppService {
 
   private readonly logger = new Logger(AppService.name);
 
-  private intera=3;
+  private intera=1;
 
   create(createProdutoDto: CreateProdutoDto): Promise<Produto> {
     console.log('Back Create1', createProdutoDto);
@@ -44,7 +44,7 @@ export class AppService {
     this.intera=this.intera+1;
     puppeteer.use(StealthPlugin());
     this.logger.debug('Called every 2 minutes - robot1');
-    const URL = `https://pt.aliexpress.com/category/201001904/hoodies-sweatshirts.html?category_redirect=1&page=`+this.intera;
+    const URL = `https://pt.aliexpress.com/category/201001900/women-clothing.html?category_redirect=1&page=`+this.intera;
     const category0 = URL.split("/");
     const category = category0[4];
     const browser = await puppeteer.launch({
