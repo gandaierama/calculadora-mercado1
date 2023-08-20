@@ -14,6 +14,11 @@ export class ProdutosController {
     return this.produtosService.findAll();
   }
 
+  @Get('/count')
+  countAll() {
+    return this.produtosService.countAll();
+  }
+
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.produtosService.findOne(id);
