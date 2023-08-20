@@ -81,10 +81,11 @@ export class AppService {
     });
 
     //await page.waitForNavigation();
-    //..++++++await page.waitForTimeout((Math.floor(Math.random() * 12) + 5) * 100) 
+    await page.waitForTimeout((Math.floor(Math.random() * 12) + 5) * 100) 
     
-
-
+    await page.evaluate(() => {
+        window.scrollTo(0, 1080);
+    });
 
     console.log('title :', await page.title());
     const results = await page.evaluate(() => {
