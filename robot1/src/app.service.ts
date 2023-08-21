@@ -44,7 +44,7 @@ export class AppService {
     this.intera=this.intera+1;
     puppeteer.use(StealthPlugin());
     this.logger.debug('Called every 2 minutes - robot1');
-    const URL = `https://pt.aliexpress.com/category/201001900/women-clothing.html?category_redirect=1&page=`+this.intera;
+    const URL = `https://pt.aliexpress.com/category/201001892/men-clothing.html?category_redirect=1&page=`+this.intera;
     const category0 = URL.split("/");
     const category = category0[4];
     const browser = await puppeteer.launch({
@@ -92,14 +92,14 @@ export class AppService {
     await page.waitForTimeout((Math.floor(Math.random() * 20) + 3) * 10) 
 
     await page.evaluate(() => {
-        window.scrollTo(1080, 2160);
+        window.scrollTo(0, 2160);
     });
     
     console.log('title :', await page.title());
     const results = await page.evaluate(() => {
       const propertyList = [];
       // document.scrollingElement.scrollTop = document.body.scrollHeight;
-      
+      // images-view-list
       document
         .querySelectorAll('.search-card-item')
         .forEach((z) => {
